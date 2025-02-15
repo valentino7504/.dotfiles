@@ -1,0 +1,13 @@
+font-family = OperatorMono Nerd Font
+font-style = Medium
+font-size = 13.5
+
+theme = jellybeans
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+keybind = ctrl+v=paste_from_clipboard
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
