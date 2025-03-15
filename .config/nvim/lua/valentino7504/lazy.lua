@@ -11,7 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "valentino7504.plugins" }, { import = "valentino7504.plugins.lsp" } }, {
+require("lazy").setup({
+	{ import = "valentino7504.plugins" },
+	{ import = "valentino7504.plugins.lsp" },
+	{ import = "valentino7504.plugins.mini" },
+	{ import = "valentino7504.plugins.snacks" },
+	{ import = "valentino7504.plugins.lang-docs" },
+}, {
 	checker = {
 		enabled = true,
 		notify = false,
