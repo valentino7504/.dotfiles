@@ -25,7 +25,6 @@ keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 local function toggle_terminal()
 	local term_buf = nil
-	-- Iterate through buffers to find a terminal buffer
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 		if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buftype == "terminal" then
 			term_buf = buf
@@ -33,13 +32,10 @@ local function toggle_terminal()
 		end
 	end
 	if not term_buf then
-		-- If no terminal is open, create one with the specified configuration
 		vim.cmd("botright 14split | term")
-		vim.cmd("setlocal norelativenumber nonumber")
 		vim.cmd("startinsert")
 	else
 		local term_win = nil
-		-- Check if the terminal buffer is visible in any window
 		for _, win in ipairs(vim.api.nvim_list_wins()) do
 			if vim.api.nvim_win_get_buf(win) == term_buf then
 				term_win = win
@@ -48,16 +44,13 @@ local function toggle_terminal()
 		end
 		if term_win then
 			if vim.api.nvim_get_current_win() == term_win then
-				-- If in terminal mode, switch to normal mode and back to the previous window
 				vim.cmd("stopinsert")
 				vim.cmd("wincmd p")
 			else
-				-- Switch to the terminal window
 				vim.api.nvim_set_current_win(term_win)
 				vim.cmd("startinsert")
 			end
 		else
-			-- Terminal buffer exists but is not visible, open it
 			vim.cmd("botright 14split")
 			vim.api.nvim_win_set_buf(0, term_buf)
 			vim.cmd("startinsert")
