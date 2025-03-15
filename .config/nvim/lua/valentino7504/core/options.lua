@@ -3,6 +3,7 @@ local opt = vim.opt
 opt.clipboard:append("unnamedplus")
 opt.relativenumber = true
 opt.number = true
+opt.statuscolumn = "%s%3l|%{v:relnum}  %C"
 opt.autoindent = false
 opt.smartindent = true
 opt.wrap = false
