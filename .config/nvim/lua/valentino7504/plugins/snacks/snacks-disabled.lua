@@ -17,7 +17,6 @@ return {
 		quickfile = { enabled = false },
 		scope = { enabled = false },
 		scratch = { enabled = false },
-		scroll = { enabled = false },
 		statuscolumn = { enabled = false },
 		terminal = { enabled = false },
 		toggle = { enabled = false },

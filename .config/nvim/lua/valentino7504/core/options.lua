@@ -3,8 +3,6 @@ local opt = vim.opt
 opt.clipboard:append("unnamedplus")
 opt.relativenumber = true
 opt.number = true
-opt.statuscolumn = "%s%3l|%{v:relnum}  %C"
-opt.signcolumn = "yes:1"
 opt.autoindent = false
 opt.smartindent = true
 opt.wrap = false
@@ -37,6 +35,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 vim.api.nvim_create_autocmd("TermOpen", {
 	callback = function()
-		vim.cmd("setlocal nonumber norelativenumber statuscolumn=")
+		vim.cmd("setlocal nonumber norelativenumber")
 	end,
 })

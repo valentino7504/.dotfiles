@@ -77,5 +77,6 @@ local function lazy(keys)
 end
 
 keymap.set("n", "<c-d>", lazy("<c-d>zz"), { desc = "Scroll down half screen" })
+
 keymap.set("n", "<leader>Gd", "<cmd>GoDoc<CR>", { noremap = true, silent = true, desc = "Open Go docs" })
 keymap.set("n", "<leader>Gp", "<cmd>PyDoc<CR>", { noremap = true, silent = true, desc = "Open Python docs" })
