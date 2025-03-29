@@ -8,7 +8,7 @@ return {
 		notifier = {
 			enabled = true,
 			style = "compact",
-			timeout = 2500,
+			timeout = 6000,
 		},
 	},
 }
