@@ -120,6 +120,9 @@ return {
 							diagnostics = {
 								globals = { "vim", "Snacks" },
 							},
+							runtime = {
+								version = "LuaJIT",
+							},
 							completion = {
 								callSnippet = "Replace",
 							},
