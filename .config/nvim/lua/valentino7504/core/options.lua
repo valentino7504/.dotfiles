@@ -19,7 +19,6 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 vim.opt.mouse = ""
-vim.hl = vim.highlight
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.{js,c,ts,go,jsx,css,py}",
 	callback = function()
