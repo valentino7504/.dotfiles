@@ -149,3 +149,4 @@ export GOPATH="$HOME/.go"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin:$GOPATH/bin"
 export MANPAGER='nvim +Man!'
 alias yeet="rm -rf"
+. "$HOME/.cargo/env"
