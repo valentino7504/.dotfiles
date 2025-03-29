@@ -146,7 +146,7 @@ venv_activate() {
 alias fd="fdfind"
 alias rm="trash-put"
 export GOPATH="$HOME/.go"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin:$GOPATH/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin:$GOPATH/bin:~/.local/share/nvim/mason/bin"
 export MANPAGER='nvim +Man!'
 alias yeet="rm -rf"
 . "$HOME/.cargo/env"
