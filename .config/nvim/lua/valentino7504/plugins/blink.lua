@@ -1,8 +1,8 @@
 return {
 	"saghen/blink.cmp",
-	lazy = false, -- lazy loading handled internally
 	dependencies = "rafamadriz/friendly-snippets",
-	version = "v0.7.6",
+	build = "...",
+	version = "1.*",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
@@ -10,15 +10,13 @@ return {
 			preset = "enter",
 		},
 		sources = {
-			enabled_providers = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer" },
 		},
+		fuzzy = { implementation = "prefer_rust_with_warning" },
 		completion = {
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 2,
-			},
-			list = {
-				selection = "auto_insert",
+				auto_show_delay_ms = 0,
 			},
 		},
 		signature = {
