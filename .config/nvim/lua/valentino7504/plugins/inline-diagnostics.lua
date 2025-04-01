@@ -9,10 +9,10 @@ return {
 				overflow = {
 					mode = "wrap",
 				},
-				multilines = {
-					enabled = true,
-					always_show = true,
-				},
+				-- multilines = {
+				-- 	enabled = true,
+				-- 	always_show = true,
+				-- },
 			},
 		})
 		vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics

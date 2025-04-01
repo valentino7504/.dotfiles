@@ -29,13 +29,16 @@ return {
 				opts.desc = "Go to next diagnostic"
 				keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 				opts.desc = "Show documentation for what is under cursor"
-				keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+				keymap.set("n", "K", function()
+					vim.lsp.buf.hover({ border = "single" })
+				end, opts) -- show documentation for what is under cursor
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 			end,
 		})
 
 		vim.diagnostic.config({
+			float = { border = "single" },
 			signs = {
 				text = {
 					[vim.diagnostic.severity.ERROR] = " ",
@@ -60,10 +63,19 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["gopls"] = function()
-				lspconfig["gopls"].setup({
-					capabilities = capabilities,
-					filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			["basedpyright"] = function()
+				lspconfig["basedpyright"].setup({
+					settings = {
+						basedpyright = {
+							analysis = {
+								-- uncomment the following line for loosey goosey code
+								-- typeCheckingMode = "off",
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+								diagnosticMode = "openFilesOnly",
+							},
+						},
+					},
 				})
 			end,
 			["emmet_ls"] = function()
@@ -84,7 +96,7 @@ return {
 			end,
 			["omnisharp"] = function()
 				-- configure omnisharp for dotnet
-				lspconfig.omnisharp.setup({
+				lspconfig["omnisharp"].setup({
 					cmd = { "dotnet", mason_root .. "omnisharp/libexec/OmniSharp.dll" },
 					capabilities = capabilities,
 					settings = {

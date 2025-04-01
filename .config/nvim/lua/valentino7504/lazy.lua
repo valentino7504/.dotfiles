@@ -16,7 +16,6 @@ require("lazy").setup({
 	{ import = "valentino7504.plugins.lsp" },
 	{ import = "valentino7504.plugins.mini" },
 	{ import = "valentino7504.plugins.snacks" },
-	{ import = "valentino7504.plugins.lang-docs" },
 }, {
 	checker = {
 		enabled = true,

@@ -5,9 +5,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		-- import mason
 		local mason = require("mason")
-
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
 
@@ -32,7 +30,7 @@ return {
 				"omnisharp",
 				"emmet_ls",
 				"lua_ls",
-				"pylsp",
+				"basedpyright",
 				"gopls",
 			},
 		})
@@ -45,20 +43,10 @@ return {
 				"eslint_d",
 				"black",
 				"isort",
+				"ruff",
 				"checkmake",
 				"gofumpt",
 				"goimports",
-			},
-		})
-		require("lspconfig").pylsp.setup({
-			settings = {
-				pylsp = {
-					plugins = {
-						pycodestyle = {
-							ignore = { "E203", "W503" },
-						},
-					},
-				},
 			},
 		})
 	end,
