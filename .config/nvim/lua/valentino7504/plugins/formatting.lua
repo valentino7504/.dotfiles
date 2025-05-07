@@ -16,8 +16,9 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "isort", "black", "ruff" },
 				go = { "gofumpt" },
+				java = { "google-java-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -26,7 +27,7 @@ return {
 		})
 
 		conform.formatters.black = {
-			prepend_args = { "--skip-string-normalization", "-l 79" },
+			prepend_args = { "-l 79" },
 		}
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()

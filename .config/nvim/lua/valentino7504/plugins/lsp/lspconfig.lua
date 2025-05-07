@@ -84,8 +84,6 @@ return {
 					capabilities = capabilities,
 					filetypes = {
 						"html",
-						"typescriptreact",
-						"javascriptreact",
 						"css",
 						"sass",
 						"scss",
@@ -110,16 +108,32 @@ return {
 				-- configure ts_ls as this is the only JS LSP that helps
 				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
-					filetypes = { "typescript", "javascript" },
+					filetypes = {
+						"typescript",
+						"typescriptreact",
+						"javascriptreact",
+						"javascript",
+					},
 					handlers = {
 						["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
 							local uri = result.uri
 							local filetype = vim.api.nvim_buf_get_option(vim.uri_to_bufnr(uri), "filetype")
 							-- Only process diagnostics for TypeScript files
-							if filetype == "typescript" then
+							if filetype == "typescript" or filetype == "typescriptreact" then
 								vim.lsp.handlers["textDocument/publishDiagnostics"](_, result, ctx, config)
 							end
 						end,
+					},
+				})
+			end,
+			["gopls"] = function()
+				lspconfig["gopls"].setup({
+					capabilities = capabilities,
+					filetypes = { "go", "gomod", "gowork", "gotmpl" },
+					settings = {
+						gopls = {
+							completeFunctionCalls = false,
+						},
 					},
 				})
 			end,

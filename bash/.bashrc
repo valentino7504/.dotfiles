@@ -146,7 +146,12 @@ venv_activate() {
 alias fd="fdfind"
 alias rm="trash-put"
 export GOPATH="$HOME/.go"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin:$GOPATH/bin:~/.local/share/nvim/mason/bin"
+export PATH="$PATH:~/.local/bin:/opt/nvim-linux-x86_64/bin:$GOPATH/bin:~/.local/share/nvim/mason/bin"
 export MANPAGER='nvim +Man!'
 alias yeet="rm -rf"
 . "$HOME/.cargo/env"
+export GRADLE_HOME=/opt/gradle/gradle-8.13
+export PATH=${GRADLE_HOME}/bin:${PATH}
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+alias please='sudo $(fc -ln -1)'

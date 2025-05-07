@@ -45,6 +45,7 @@ return {
 				"sql",
 				"gosum",
 				"gomod",
+				"dockerfile",
 			},
 			incremental_selection = {
 				enable = true,

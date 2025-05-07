@@ -11,7 +11,6 @@ return {
 		dim = { enabled = false },
 		git = { enabled = false },
 		gitbrowse = { enabled = false },
-		image = { enabled = false },
 		input = { enabled = false },
 		lazygit = { enabled = false },
 		profiler = { enabled = false },

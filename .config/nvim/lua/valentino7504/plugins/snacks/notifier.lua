@@ -11,4 +11,13 @@ return {
 			timeout = 6000,
 		},
 	},
+	keys = {
+		{
+			"<leader>nl",
+			function()
+				Snacks.notifier.show_history()
+			end,
+			desc = "Show notification history",
+		},
+	},
 }

@@ -4,8 +4,9 @@ return {
 	priority = 1000,
 	config = function()
 		require("jellybeans").setup({
-			transparent = true,
+			transparent = false,
+			-- palette = "jellybeans_muted",
 		})
-		vim.cmd.colorscheme("jellybeans")
+		-- vim.cmd.colorscheme("jellybeans")
 	end,
 }
