@@ -10,7 +10,7 @@ font-style-bold-italic = Bold Italic
 
 font-feature = -calt, -liga, -dlig
 
-theme = standard
+theme = jellybeans-muted
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor

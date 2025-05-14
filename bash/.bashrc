@@ -155,3 +155,5 @@ export PATH=${GRADLE_HOME}/bin:${PATH}
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 alias please='sudo $(fc -ln -1)'
+alias "sudonvim"='sudo /opt/nvim-linux-x86_64/bin/nvim'
+export QTWEBENGINE_CHROMIUM_FLAGS=--widevine-path="/home/valentino7504/.local/WidevineCdm/_platform_specific/linux_x64/libwidevinecdm.so"
