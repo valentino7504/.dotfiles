@@ -19,3 +19,9 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.cmd("setlocal nonumber norelativenumber")
 	end,
 })
+
+if vim.fn.executable("zsh") == 1 then
+	vim.opt.shell = "zsh"
+elseif vim.fn.executable("bash") == 1 then
+	vim.opt.shell = "bash"
+end
