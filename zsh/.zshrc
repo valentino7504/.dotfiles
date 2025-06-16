@@ -141,4 +141,6 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$GOPATH/bin:~/.local/share/nvim/mason/bin" alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="$PATH:$GOPATH/bin:~/.local/share/nvim/mason/bin"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cat="bat"
