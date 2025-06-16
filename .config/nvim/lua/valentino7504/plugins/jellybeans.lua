@@ -7,6 +7,6 @@ return {
 			transparent = true,
 			italics = true,
 		})
-		vim.cmd.colorscheme("jellybeans-muted")
+		-- vim.cmd.colorscheme("jellybeans-muted")
 	end,
 }

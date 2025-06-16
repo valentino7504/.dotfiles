@@ -2,13 +2,15 @@ return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
 	opts = {
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+		},
 	},
 	keys = {
 		{
 			"<leader>ff",
 			function()
-				Snacks.picker.files()
+				Snacks.picker.files(opts)
 			end,
 			desc = "Find Files",
 		},
