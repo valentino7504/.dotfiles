@@ -1,16 +1,19 @@
-# font-family = DankMono Nerd Font Mono
-font-family = VictorMono Nerd Font
-# font-size = 13.5
-font-style = Medium
-font-style-italic = SemiBold Italic
-font-style-bold = Bold
-font-style-bold-italic = Bold Italic
+font-family = 0xProto Nerd Font
+# font-family = VictorMono Nerd Font
+font-size = 12
+# font-style = Medium # OperatorMono
+# font-family-italic= DankMono Nerd Font
+# font-family-bold-italic= DankMono Nerd Font
+# font-style-italic = Bold Italic # for VictorMono
+# font-style-bold = Bold # for VictorMono
+# font-style-bold-italic = SemiBold Italic # for VictorMono
 # font-family = OperatorMono Nerd Font
-# font-thicken = true
+# font-thicken = true # for VictorMono
 
 font-feature = -calt, -liga, -dlig
 
-theme = jellybeans-muted
+# theme = jellybeans-muted
+theme = kanagawa-dragon
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
@@ -20,6 +23,6 @@ keybind = ctrl+shift+t=new_tab
 keybind = ctrl+tab=next_tab
 keybind = ctrl+shift+tab=previous_tab
 
-background-opacity = 0.9
+background-opacity = 1.0
 gtk-titlebar-hide-when-maximized = true
 window-padding-y = 10,0
