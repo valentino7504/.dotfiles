@@ -19,6 +19,10 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.cmd("setlocal nonumber norelativenumber")
 	end,
 })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.tmpl",
+	command = "set filetype=html",
+})
 
 if vim.fn.executable("zsh") == 1 then
 	vim.opt.shell = "zsh"

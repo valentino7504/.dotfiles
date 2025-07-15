@@ -125,13 +125,11 @@ venv_activate() {
   fi
 }
 
-alias fd="fdfind"
-export MANPAGER='nvim +Man!'
-alias yeet="rm -rf"
 . "$HOME/.cargo/env"
-alias please='sudo $(fc -ln -1)'
-alias "sudonvim"='sudo /usr/bin/nvim'
-alias rm="trash"
+
+## Env Vars
+export BAT_PAGER=""
+export MANPAGER='nvim +Man!'
 export BW_SESSION="kOMgHtbtIMWdb0Uapt5O/0d2apvrqvhRuMPb9SpMBCskv/THlVkkEGIFWFUabv/gtLvgqpUnbUpWgEPygeE8ag=="
 export GTK_THEME=Adwaita:dark
 export GOPATH="$HOME/.go"
@@ -142,5 +140,14 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$GOPATH/bin:~/.local/share/nvim/mason/bin"
+export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
+
+## My Aliases
+alias fd="fdfind"
+alias "sudonvim"='sudo /usr/bin/nvim'
+alias rm="trash"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cat="bat"
+alias ls='eza --icons --color=auto --group-directories-first'
+alias ll='eza --icons --color=auto -alh --group-directories-first'
+alias tree='eza --tree --icons --color=auto'
