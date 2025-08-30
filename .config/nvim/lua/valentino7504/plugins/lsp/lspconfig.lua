@@ -89,6 +89,7 @@ return {
 						"scss",
 						"less",
 						"svelte",
+						"gotmpl",
 					},
 				})
 			end,

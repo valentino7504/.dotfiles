@@ -11,9 +11,9 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				css = { "prettier" },
-				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
+				html = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black", "ruff" },
@@ -29,6 +29,11 @@ return {
 		conform.formatters.black = {
 			prepend_args = { "-l 79" },
 		}
+
+		-- conform.formatters.gotmplfmt = {
+		-- 	command = "gotmplfmt",
+		-- 	stdin = true,
+		-- }
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({

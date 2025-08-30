@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.tmpl",
-	command = "set filetype=html",
+	command = "set filetype=gotmpl",
 })
 
 if vim.fn.executable("zsh") == 1 then
