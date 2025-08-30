@@ -13,7 +13,7 @@ font-size = 12
 font-feature = -calt, -liga, -dlig
 
 # theme = jellybeans-muted
-theme = kanagawa-dragon
+theme = lackluster
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
@@ -26,3 +26,4 @@ keybind = ctrl+shift+tab=previous_tab
 background-opacity = 1.0
 gtk-titlebar-hide-when-maximized = true
 window-padding-y = 10,0
+window-save-state = "always"
