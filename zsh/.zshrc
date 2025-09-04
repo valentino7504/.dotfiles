@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,6 +143,7 @@ export PATH="$PATH:$GOPATH/bin:~/.local/share/nvim/mason/bin"
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 
 ## My Aliases
+alias neofetch="fastfetch"
 alias fd="fdfind"
 alias "sudonvim"='sudo /usr/bin/nvim'
 alias rm="trash"
@@ -151,3 +152,7 @@ alias cat="bat"
 alias ls='eza --icons --color=auto --group-directories-first'
 alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
+
+eval "$(zoxide init zsh)"
+export CLIENT_ID="0c7ab19e-0936-4b58-85b0-5f189b9e97f2"
+export SCOPE="user.read%20openid%20profile%20mail.send%20offline_access"
