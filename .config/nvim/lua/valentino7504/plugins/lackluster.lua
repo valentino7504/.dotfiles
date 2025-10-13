@@ -33,6 +33,10 @@ return {
 					overwrite = false,
 					fg = "#DEEEED",
 				},
+				["CursorLine"] = {
+					overwrite = false,
+					bg = "NONE",
+				},
 				["SnacksPickerBorder"] = {
 					overwrite = false,
 					fg = light_bg,

@@ -23,6 +23,16 @@ return {
 			end,
 		})
 
+		local goci = lint.linters.golangcilint
+
+		goci.args = {
+			"run",
+			"--output.json.path=stdout",
+			"--show-stats=false",
+			"--issues-exit-code",
+			"0",
+		}
+
 		vim.keymap.set("n", "<leader>lf", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
