@@ -1,5 +1,5 @@
 vim.lsp.config("gopls", {
-	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+	filetypes = { "go", "go.mod", "go.work", "gotmpl" },
 	settings = {
 		gopls = {
 			completeFunctionCalls = false,
