@@ -10,7 +10,7 @@ return {
 		{
 			"<leader>ff",
 			function()
-				Snacks.picker.files(opts)
+				Snacks.picker.files()
 			end,
 			desc = "Find Files",
 		},
