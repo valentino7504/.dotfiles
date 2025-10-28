@@ -18,7 +18,7 @@ font-family = 0xProto Nerd Font
 font-size = 12
 font-feature = -calt, -liga, -dlig
 
-theme = lackluster
+theme = synth
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
