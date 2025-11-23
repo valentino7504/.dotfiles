@@ -19,3 +19,4 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 vim.opt.mouse = ""
+opt.guicursor = "n-v-c:block,i:block-blinkwait400-blinkon200-blinkoff100"
