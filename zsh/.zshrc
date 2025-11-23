@@ -125,6 +125,25 @@ venv_activate() {
   fi
 }
 
+function cd() {
+  builtin cd "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+      if [[ -d ./.venv ]] ; then
+        source ./.venv/bin/activate
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
 . "$HOME/.cargo/env"
 
 ## Env Vars
@@ -141,13 +160,14 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$GOPATH/bin:~/.local/share/nvim/mason/bin"
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
+export EDITOR="nvim"
 
 ## My Aliases
 alias neofetch="fastfetch"
 alias fd="fdfind"
 alias "sudonvim"='sudo /usr/bin/nvim'
-alias rm="trash"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias syscat="/bin/cat"
 alias cat="bat"
 alias ls='eza --icons --color=auto --group-directories-first'
 alias ll='eza --icons --color=auto -alh --group-directories-first'
@@ -156,3 +176,22 @@ alias tree='eza --tree --icons --color=auto'
 eval "$(zoxide init zsh)"
 export CLIENT_ID="0c7ab19e-0936-4b58-85b0-5f189b9e97f2"
 export SCOPE="user.read%20openid%20profile%20mail.send%20offline_access"
+
+function y() {
+  yazi "$@"
+}
+
+function z() {
+  __zoxide_z "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+      if [[ -d ./.venv ]] ; then
+        source ./.venv/bin/activate
+      fi
+  else
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
