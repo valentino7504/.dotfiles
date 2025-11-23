@@ -16,7 +16,7 @@ return {
 				html = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black", "ruff" },
+				python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 				go = { "gofumpt" },
 				java = { "google-java-format" },
 			},
@@ -25,15 +25,6 @@ return {
 				async = false,
 			},
 		})
-
-		conform.formatters.black = {
-			prepend_args = { "-l 79" },
-		}
-
-		-- conform.formatters.gotmplfmt = {
-		-- 	command = "gotmplfmt",
-		-- 	stdin = true,
-		-- }
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({

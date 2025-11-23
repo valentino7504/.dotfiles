@@ -46,8 +46,6 @@ return {
 					"golangci-lint",
 					"prettier",
 					"eslint_d",
-					"black",
-					"isort",
 					"ruff",
 					"checkmake",
 					"gofumpt",
