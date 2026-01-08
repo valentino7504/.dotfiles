@@ -50,7 +50,7 @@ return {
 			desc = "Goto Definition",
 		},
 		{
-			"gr",
+			"<leader>gr",
 			function()
 				Snacks.picker.lsp_references()
 			end,
