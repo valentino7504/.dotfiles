@@ -1,4 +1,4 @@
-vim.cmd("let g:netrw_liststyle=3")
+-- vim.cmd("let g:netrw_liststyle=3")
 local opt = vim.opt
 opt.clipboard:append("unnamedplus")
 opt.relativenumber = true
@@ -15,8 +15,9 @@ opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 opt.splitright = true
 opt.splitbelow = true
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-vim.opt.mouse = ""
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.mouse = ""
 opt.guicursor = "n-v-c:block,i:block-blinkwait400-blinkon200-blinkoff100"
+opt.winborder = "rounded"

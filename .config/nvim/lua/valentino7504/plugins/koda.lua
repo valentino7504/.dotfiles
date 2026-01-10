@@ -1,12 +1,17 @@
 return {
 	"oskarnurm/koda.nvim",
-	lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	priority = 1000, -- make sure to load this before all the other start plugins
+	lazy = false,
+	priority = 1000,
 	config = function()
 		require("koda").setup({
-			bold = true,
-			italic = true,
 			transparent = true,
+			styles = {
+				functions = { bold = true, italic = false },
+				keywords = { italic = true, bold = false },
+				comments = { italic = true, bold = false },
+				strings = {},
+				constants = {},
+			},
 		})
 		vim.cmd("colorscheme koda")
 	end,

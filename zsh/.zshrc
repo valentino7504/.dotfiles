@@ -149,12 +149,13 @@ function cd() {
 ## Env Vars
 export BAT_PAGER=""
 export MANPAGER='nvim +Man!'
-export BW_SESSION="kOMgHtbtIMWdb0Uapt5O/0d2apvrqvhRuMPb9SpMBCskv/THlVkkEGIFWFUabv/gtLvgqpUnbUpWgEPygeE8ag=="
 export GTK_THEME=Adwaita:dark
 export GOPATH="$HOME/.go"
 export GRADLE_HOME=/opt/gradle/gradle-8.13
-export PATH=${GRADLE_HOME}/bin:${PATH}
 export JAVA_HOME=/usr/lib/jvm/java-25-openjdk
+
+
+export PATH=${GRADLE_HOME}/bin:${PATH}
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -174,8 +175,6 @@ alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
 
 eval "$(zoxide init zsh)"
-export CLIENT_ID="0c7ab19e-0936-4b58-85b0-5f189b9e97f2"
-export SCOPE="user.read%20openid%20profile%20mail.send%20offline_access"
 
 function y() {
   yazi "$@"
