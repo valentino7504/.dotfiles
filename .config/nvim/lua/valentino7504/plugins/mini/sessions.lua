@@ -7,7 +7,6 @@ return {
 			autoread = true,
 			autowrite = false,
 		})
-		local keymap = vim.keymap
-		keymap.set("n", "<leader>ss", ":lua MiniSessions.write('.session.vim')<CR>", { desc = "Save session" })
+		vim.keymap.set("n", "<leader>ss", ":lua MiniSessions.write('.session.vim')<CR>", { desc = "Save session" })
 	end,
 }
