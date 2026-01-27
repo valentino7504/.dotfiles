@@ -26,13 +26,14 @@ return {
 					"cssls",
 					"omnisharp",
 					"emmet_ls",
-					"lua_ls",
+					"lua_ls@3.16.4",
 					"basedpyright",
 					"gopls",
 					"jdtls",
 					"docker_compose_language_service",
 					"dockerls",
 					"ts_ls",
+					"rust_analyzer",
 				},
 			})
 

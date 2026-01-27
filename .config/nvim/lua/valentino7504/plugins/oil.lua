@@ -32,6 +32,6 @@ return {
 		})
 		vim.keymap.set("n", "<leader>_", oil.toggle_float, { desc = "Open Oil in parent directory of current buffer" })
 		vim.keymap.set("n", "-", openCwd, { desc = "Open Oil in current working directory" })
-		require("oil-git-status").setup()
+		require("oil-git-status").setup({ show_ignored = true })
 	end,
 }
