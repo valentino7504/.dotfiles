@@ -144,7 +144,7 @@ function cd() {
   fi
 }
 
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 ## Env Vars
 export BAT_PAGER=""
