@@ -194,3 +194,4 @@ function z() {
       fi
   fi
 }
+alias lg="lazygit"
