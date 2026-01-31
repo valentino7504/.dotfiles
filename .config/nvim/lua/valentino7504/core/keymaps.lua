@@ -20,7 +20,7 @@ keymap.set("", "<down>", "<nop>", { noremap = true })
 keymap.set("i", "<up>", "<nop>", { noremap = true })
 keymap.set("i", "<down>", "<nop>", { noremap = true })
 
-keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Execute current lua line in vim" })
 keymap.set("n", "<space>x", ":.lua<CR>")
 keymap.set("v", "<space>x", ":lua<CR>")
 
