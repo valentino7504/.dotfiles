@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("mini.sessions").setup({
 			file = ".session.vim",
-			autoread = true,
+			autoread = false,
 			autowrite = true,
 		})
 		vim.keymap.set("n", "<leader>ss", ":lua MiniSessions.write('.session.vim')<CR>", { desc = "Save session" })
