@@ -2,6 +2,7 @@
 
 This repo contains my configuration files (dotfiles) managed with GNU Stow.
 Each application's configuration is isolated into its own directory.
+The repo also contains the names of my currently installed packages and things I use.
 
 ## Repository Structure
 
@@ -9,6 +10,9 @@ The repo is organized by application and each folder mimics the structure of the
 
 ```
 .
+├── asciinema                                # Links to ~/.config/asciinema
+│   └── .config
+│       └── asciinema
 ├── ghostty                                # Links to ~/.config/ghostty
 │   └── .config
 │       └── ghostty
@@ -35,7 +39,10 @@ The repo is organized by application and each folder mimics the structure of the
 │       └── yazi
 │           └── ... yazi config goes here
 ├── zsh                                   # Links to ~/.zshrc
-    └── .zshrc
+│   └── .zshrc
+├── .stow-local-ignore
+├── install.sh
+├── installed-packages.txt
 └── README.md
 ```
 
@@ -108,16 +115,18 @@ stow -D -t ~ nvim
 
 ---
 
-## Stack
+## Stuff I Use
 
-| Tool                                                | Role            |
-| --------------------------------------------------- | --------------- |
-| [Fedora](https://fedoraproject.org/)                | Daily driver OS |
-| [Zsh](https://www.zsh.org/)                         | Shell           |
-| [Neovim](https://neovim.io/)                        | Editor          |
-| [Ghostty](https://ghostty.org/)                     | Terminal        |
-| [Yazi](https://github.com/sxyazi/yazi)              | File manager    |
-| [Lazygit](https://github.com/jesseduffield/lazygit) | TUI for Git     |
+| Tool                                                               | What I use it for     |
+| ------------------------------------------------------------------ | --------------------- |
+| [Fedora](https://fedoraproject.org/)                               | Daily driver OS       |
+| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)     | Shell                 |
+| [Neovim](https://neovim.io/)                                       | Editor                |
+| [Ghostty](https://ghostty.org/)                                    | Terminal              |
+| [Yazi](https://github.com/sxyazi/yazi)                             | File manager          |
+| [Lazygit](https://github.com/jesseduffield/lazygit)                | TUI for Git           |
+| [Keyd](https://github.com/rvaiya/keyd)                             | Key remapping         |
+| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts) | Terminal colorscripts |
 
 ---
 
