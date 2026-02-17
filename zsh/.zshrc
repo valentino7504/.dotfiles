@@ -268,3 +268,6 @@ cd() {
 }
 
 
+refresh_installed() {
+    dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt
+}
