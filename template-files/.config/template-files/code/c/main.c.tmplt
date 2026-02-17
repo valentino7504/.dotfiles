@@ -1,0 +1,11 @@
+/**
+ * Project: {{PROJECT_NAME}}
+ * Author:  {{AUTHOR}}
+ * Date:    {{DATE}}
+ */
+#include <stdio.h>
+
+int main(void) {
+    printf("Project {{PROJECT_NAME}} initialized.\n");
+    return 0;
+}

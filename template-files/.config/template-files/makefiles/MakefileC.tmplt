@@ -1,0 +1,37 @@
+CC = gcc
+CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Werror -g
+OBJ_DIR = build
+BIN_DIR = bin
+
+# Automatically find all .c files in src/
+SRC = $(wildcard src/*.c)
+# Convert src/file.c to build/file.o
+OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
+TARGET = $(BIN_DIR)/main
+
+all: compile_commands.json $(TARGET)
+
+compile_commands.json: $(SRC)
+	bear -- make  $(TARGET)
+
+# Link step
+$(TARGET): $(OBJ)
+	@mkdir -p $(BIN_DIR)
+	$(CC) $(OBJ) -o $(TARGET)
+
+# Compile step
+$(OBJ_DIR)/%.o: src/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+run: all
+	./$(TARGET)
+
+memcheck: all
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET)
+
+debug: all
+	gdb -nh -x .gdbinit ./$(TARGET)
+
+clean:
+	rm -rf $(OBJ_DIR)/* $(BIN_DIR)/*
