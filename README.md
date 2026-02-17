@@ -9,34 +9,34 @@ The repo is organized by application and each folder mimics the structure of the
 
 ```
 .
-├──  ghostty                                # Links to ~/.config/ghostty
-│   └──  .config
-│       └──  ghostty
-│           ├──  config
-│           └──  themes
+├── ghostty                                # Links to ~/.config/ghostty
+│   └── .config
+│       └── ghostty
+│           ├── config
+│           └── themes
 │               └── ... Ghostty themes
-├──  git                                   # Links to ~/.gitconfig
-│   └──  .gitconfig
-├──  ideavim                               # Links to ~/.ideavimrc
-│   └──  .ideavimrc
-├──  lazygit                               # Links to ~/.config/lazygit
-│   └──  .config
-│       └──  lazygit
-│           ├──  config.yml
-│           └──  themes
-├──  nvim                                  # Links to ~/.config/nvim
-│   └──  .config
-│       └──  nvim
+├── git                                   # Links to ~/.gitconfig
+│   └── .gitconfig
+├── ideavim                               # Links to ~/.ideavimrc
+│   └── .ideavimrc
+├── lazygit                               # Links to ~/.config/lazygit
+│   └── .config
+│       └── lazygit
+│           ├── config.yml
+│           └── themes
+├── nvim                                  # Links to ~/.config/nvim
+│   └── .config
+│       └── nvim
 │           └── ... Neovim config goes here
-├──  vim                                   # Links to ~/.vimrc
-│   └──  .vimrc
-├──  yazi                                  # Links to ~/.config/yazi
-│   └──  .config
-│       └──  yazi
+├── vim                                   # Links to ~/.vimrc
+│   └── .vimrc
+├── yazi                                  # Links to ~/.config/yazi
+│   └── .config
+│       └── yazi
 │           └── ... yazi config goes here
-├──  zsh                                   # Links to ~/.zshrc
-    └── 󱆃 .zshrc
-└── 󰂺 README.md
+├── zsh                                   # Links to ~/.zshrc
+    └── .zshrc
+└── README.md
 ```
 
 ---
