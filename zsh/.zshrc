@@ -194,4 +194,79 @@ function z() {
       fi
   fi
 }
+
+mkc() {
+    local name=$1
+    if [ -z "$name" ]; then
+        echo "Usage: mkc <project_name>"
+        return 1
+    fi
+
+    mkdir -p "$name/src" "$name/bin" && cd "$name"
+
+    # 1. Create your specific .clang-format
+    cat <<EOF > .clang-format
+---
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+BreakBeforeBraces: Attach
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+PointerAlignment: Right
+AllowShortFunctionsOnASingleLine: Empty
+SortIncludes: true
+AlignConsecutiveMacros: true
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Left
+ReferenceAlignment: Right
+...
+EOF
+
+    # 2. Create the Makefile
+    cat <<EOF > Makefile
+CC = gcc
+CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Werror -g
+SRC = src/main.c
+OBJ = bin/main
+
+all: \$(OBJ)
+
+\$(OBJ): \$(SRC)
+	\$(CC) \$(CFLAGS) \$(SRC) -o \$(OBJ)
+
+run: all
+	./\$(OBJ)
+
+clean:
+	rm -rf bin/*
+EOF
+
+    # 3. Create the base C file
+    cat <<EOF > src/main.c
+#include <stdio.h>
+
+int main(void) {
+    printf("Project $name initialized.\n");
+    return 0;
+}
+EOF
+
+    if command -v bear >/dev/null 2>&1; then
+        bear -- make all >/dev/null 2>&1
+        echo "LSP database generated with bear."
+    elif command -v compiledb >/dev/null 2>&1; then
+        compiledb make >/dev/null 2>&1
+        echo "LSP database generated with compiledb."
+    else
+        echo "Warning: Neither 'bear' nor 'compiledb' found. LSP features may be limited."
+    fi
+
+    echo "C project '$name' created successfully."
+}
+
+
 alias lg="lazygit"
