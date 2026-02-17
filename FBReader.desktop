@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=FBReader
-Comment=Favourite Book Reader
-Exec=FBReader
-Terminal=false
-Type=Application
-Categories=Reading;
-Icon='~/.local/icons/fbreader.png'
-StartupWMClass=com.fbreader.edwin

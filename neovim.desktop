@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Neovim
-Comment=Hyperextensible Vim-based text editor
-Exec=zsh -i -c "ghostty --gtk-titlebar-hide-when-maximized --class=com.neovim.edwin -e ~/.local/bin/nvim_prompt.sh"
-Terminal=false
-Type=Application
-Categories=Development;Utility;
-Icon=nvim
-StartupWMClass=com.neovim.edwin
