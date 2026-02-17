@@ -6,15 +6,12 @@ return {
 		require("tiny-inline-diagnostic").setup({
 			preset = "amongus",
 			options = {
+				show_code = true,
 				overflow = {
 					mode = "wrap",
 				},
-				-- multilines = {
-				-- 	enabled = true,
-				-- 	always_show = true,
-				-- },
 			},
 		})
-		vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
+		vim.diagnostic.config({ virtual_text = false })
 	end,
 }
