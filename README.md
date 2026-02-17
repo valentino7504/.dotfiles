@@ -10,36 +10,16 @@ The repo is organized by application and each folder mimics the structure of the
 
 ```
 .
-├── asciinema                                # Links to ~/.config/asciinema
-│   └── .config
-│       └── asciinema
-├── ghostty                                # Links to ~/.config/ghostty
-│   └── .config
-│       └── ghostty
-│           ├── config
-│           └── themes
-│               └── ... Ghostty themes
-├── git                                   # Links to ~/.gitconfig
-│   └── .gitconfig
-├── ideavim                               # Links to ~/.ideavimrc
-│   └── .ideavimrc
-├── lazygit                               # Links to ~/.config/lazygit
-│   └── .config
-│       └── lazygit
-│           ├── config.yml
-│           └── themes
-├── nvim                                  # Links to ~/.config/nvim
-│   └── .config
-│       └── nvim
-│           └── ... Neovim config goes here
-├── vim                                   # Links to ~/.vimrc
-│   └── .vimrc
-├── yazi                                  # Links to ~/.config/yazi
-│   └── .config
-│       └── yazi
-│           └── ... yazi config goes here
-├── zsh                                   # Links to ~/.zshrc
-│   └── .zshrc
+├── asciinema                     # Links to ~/.config/asciinema
+├── ghostty                       # Links to ~/.config/ghostty
+├── git                           # Links to ~/.gitconfig
+├── ideavim                       # Links to ~/.ideavimrc
+├── lazygit                       # Links to ~/.config/lazygit
+├── nvim                          # Links to ~/.config/nvim
+├── template_files                # Links to ~/.config/template-files
+├── vim                           # Links to ~/.vimrc
+├── yazi                          # Links to ~/.config/yazi
+├── zsh                           # Links to ~/.zshrc
 ├── .stow-local-ignore
 ├── install.sh
 ├── installed-packages.txt
@@ -113,21 +93,27 @@ To delete the symlinks and "uninstall" a configuration from the home directory w
 stow -D -t ~ nvim
 ```
 
+Of course, if you are using the same `.stowrc` you can ignore the `-t ~`.
+
 ---
 
 ## Stuff I Use
 
-| Tool                                                                 | What I use it for     |
-| -------------------------------------------------------------------- | --------------------- |
-| [Fedora](https://fedoraproject.org/)                                 | Daily driver OS       |
-| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                 |
-| [Neovim](https://neovim.io/)                                         | Editor                |
-| [Ghostty](https://ghostty.org/)                                      | Terminal              |
-| [Yazi](https://github.com/sxyazi/yazi)                               | File manager          |
-| [Lazygit](https://github.com/jesseduffield/lazygit)                  | TUI for Git           |
-| [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping         |
-| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts |
-| [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java Development      |
+| Tool                                                                 | What is it?             |
+| -------------------------------------------------------------------- | ----------------------- |
+| [Fedora](https://fedoraproject.org/)                                 | Daily driver OS         |
+| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                   |
+| [Neovim](https://neovim.io/)                                         | Editor                  |
+| [Ghostty](https://ghostty.org/)                                      | Terminal                |
+| [Yazi](https://github.com/sxyazi/yazi)                               | File manager            |
+| [Lazygit](https://github.com/jesseduffield/lazygit)                  | TUI for Git             |
+| [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping           |
+| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts   |
+| [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java IDE                |
+| [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide)                      | A smarter cd            |
+| [Bat](https://github.com/sharkdp/bat)                                | cat(1) with wings       |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch)              | System information tool |
 
 ---
 
