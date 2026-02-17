@@ -117,16 +117,17 @@ stow -D -t ~ nvim
 
 ## Stuff I Use
 
-| Tool                                                               | What I use it for     |
-| ------------------------------------------------------------------ | --------------------- |
-| [Fedora](https://fedoraproject.org/)                               | Daily driver OS       |
-| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)     | Shell                 |
-| [Neovim](https://neovim.io/)                                       | Editor                |
-| [Ghostty](https://ghostty.org/)                                    | Terminal              |
-| [Yazi](https://github.com/sxyazi/yazi)                             | File manager          |
-| [Lazygit](https://github.com/jesseduffield/lazygit)                | TUI for Git           |
-| [Keyd](https://github.com/rvaiya/keyd)                             | Key remapping         |
-| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts) | Terminal colorscripts |
+| Tool                                                                 | What I use it for     |
+| -------------------------------------------------------------------- | --------------------- |
+| [Fedora](https://fedoraproject.org/)                                 | Daily driver OS       |
+| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                 |
+| [Neovim](https://neovim.io/)                                         | Editor                |
+| [Ghostty](https://ghostty.org/)                                      | Terminal              |
+| [Yazi](https://github.com/sxyazi/yazi)                               | File manager          |
+| [Lazygit](https://github.com/jesseduffield/lazygit)                  | TUI for Git           |
+| [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping         |
+| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts |
+| [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java Development      |
 
 ---
 
