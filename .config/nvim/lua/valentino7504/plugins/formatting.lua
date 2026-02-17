@@ -6,6 +6,8 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },
@@ -18,7 +20,7 @@ return {
 				lua = { "stylua" },
 				python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 				go = { "gofumpt" },
-				java = { "google-java-format" },
+				-- java = { "google-java-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
