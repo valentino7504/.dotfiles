@@ -27,15 +27,20 @@ export PATH="$JAVA_HOME/bin:${GRADLE_HOME}/bin:/usr/local/go/bin:$GOPATH/bin:$HO
 
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/koda.yml"
+# editor
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
     export EDITOR='nvim'
 fi
+# fnm
+FNM_PATH="/home/valentino7504/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+    export PATH="$FNM_PATH:$PATH"
+    eval "$(fnm env --use-on-cd --shell zsh)"
+fi
 
 ## My Aliases
-alias neofetch="fastfetch"
-alias fd="fdfind"
 alias "sudonvim"='sudo /usr/bin/nvim'
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias syscat="/bin/cat"
@@ -158,3 +163,4 @@ cd() {
 dnf-refresh-installed() {
     dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt
 }
+
