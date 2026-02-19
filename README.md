@@ -99,21 +99,24 @@ Of course, if you are using the same `.stowrc` you can ignore the `-t ~`.
 
 ## Stuff I Use
 
-| Tool                                                                 | What is it?             |
-| -------------------------------------------------------------------- | ----------------------- |
-| [Fedora](https://fedoraproject.org/)                                 | Daily driver OS         |
-| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                   |
-| [Neovim](https://neovim.io/)                                         | Editor                  |
-| [Ghostty](https://ghostty.org/)                                      | Terminal                |
-| [Yazi](https://github.com/sxyazi/yazi)                               | File manager            |
-| [Lazygit](https://github.com/jesseduffield/lazygit)                  | TUI for Git             |
-| [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping           |
-| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts   |
-| [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java IDE                |
-| [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management |
-| [Zoxide](https://github.com/ajeetdsouza/zoxide)                      | A smarter cd            |
-| [Bat](https://github.com/sharkdp/bat)                                | cat(1) with wings       |
-| [Fastfetch](https://github.com/fastfetch-cli/fastfetch)              | System information tool |
+| Tool                                                                 | What is it?              |
+| -------------------------------------------------------------------- | ------------------------ |
+| [Fedora](https://fedoraproject.org/)                                 | Daily driver OS          |
+| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                    |
+| [Neovim](https://neovim.io/)                                         | Editor                   |
+| [Ghostty](https://ghostty.org/)                                      | Terminal                 |
+| [Yazi](https://github.com/sxyazi/yazi)                               | File manager             |
+| [Lazygit](https://github.com/jesseduffield/lazygit)                  | TUI for Git              |
+| [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping            |
+| [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts    |
+| [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java IDE                 |
+| [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management  |
+| [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management  |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide)                      | A smarter cd             |
+| [Bat](https://github.com/sharkdp/bat)                                | cat(1) with wings        |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch)              | System information tool  |
+| [Bun](https://bun.com)                                               | An all in one JS toolkit |
+| [Bum](https://github.com/owenizedd/bum)                              | Bun version manager      |
 
 ---
 
