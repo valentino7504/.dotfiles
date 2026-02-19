@@ -1,3 +1,7 @@
+# for metrics uncomment
+# zmodload zsh/zprof
+
+typeset -U path PATH
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -17,14 +21,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 
 ## Env Vars
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 export BAT_PAGER=""
 export MANPAGER='nvim +Man!'
 export GTK_THEME=Adwaita:dark
 export GOPATH="$HOME/.go"
 export GRADLE_HOME=/opt/gradle/gradle-8.13
 export JAVA_HOME=/usr/lib/jvm/java-25-openjdk
-export PATH="$JAVA_HOME/bin:${GRADLE_HOME}/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
-
+export PATH="$BUN_INSTALL/bin:$JAVA_HOME/bin:${GRADLE_HOME}/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/koda.yml"
 # editor
@@ -33,6 +40,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='nvim'
 fi
+
 # fnm
 FNM_PATH="/home/valentino7504/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -53,26 +61,16 @@ alias lg="lazygit"
 eval "$(zoxide init zsh)"
 
 # MY CUSTOM FUNCTIONS
-function y() {
-    yazi "$@"
-}
-
-function z() {
-    __zoxide_z "$@"
-
-    if [[ -z "$VIRTUAL_ENV" ]] ; then
-        if [[ -d ./.venv ]] ; then
-            source ./.venv/bin/activate
-        fi
-    else
-        parentdir="$(dirname "$VIRTUAL_ENV")"
-        if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-            deactivate
-        fi
+y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
     fi
+    rm -f -- "$tmp"
 }
 
-
+# create C project
 mkc() {
     local name=$1
     local author_name=$(git config user.name)
@@ -140,27 +138,35 @@ venv_activate() {
     fi
 }
 
-cd() {
-    builtin cd "$@"
+python_venv_autoloader() {
+    # If a venv is currently active
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Check if we are still inside the project that owns this venv
+        # ${VIRTUAL_ENV%/*} is a fast shell way to get the parent folder
+        local project_root="${VIRTUAL_ENV%/*}"
 
-    if [[ -z "$VIRTUAL_ENV" ]] ; then
-        # if env folder is found then activate the vitualenv
-        if [[ -d ./.venv ]] ; then
-            source ./.venv/bin/activate
-        fi
-    else
-        # check the current folder belong to earlier VIRTUAL_ENV folder
-        # if yes then do nothing
-        # else deactivate
-        parentdir="$(dirname "$VIRTUAL_ENV")"
-        if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        if [[ "$PWD" != "$project_root"* ]]; then
             deactivate
         fi
     fi
+
+    # If no venv is active, check if we just entered a project with one
+    if [[ -z "$VIRTUAL_ENV" && -d "./.venv" ]]; then
+        source ./.venv/bin/activate
+    fi
 }
 
+autoload -U add-zsh-hook
+add-zsh-hook chpwd python_venv_autoloader
 
 dnf-refresh-installed() {
     dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt
 }
 
+# bun completions
+[ -s "/home/valentino7504/.bun/_bun" ] && source "/home/valentino7504/.bun/_bun"
+python_venv_autoloader
+
+
+# for metrics uncomment
+# zprof
