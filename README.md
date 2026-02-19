@@ -111,7 +111,6 @@ Of course, if you are using the same `.stowrc` you can ignore the `-t ~`.
 | [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts    |
 | [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java IDE                 |
 | [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management  |
-| [Fast Node Manager (FNM)](https://github.com/Schniz/fnm)             | Node version management  |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide)                      | A smarter cd             |
 | [Bat](https://github.com/sharkdp/bat)                                | cat(1) with wings        |
 | [Fastfetch](https://github.com/fastfetch-cli/fastfetch)              | System information tool  |
