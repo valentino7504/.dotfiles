@@ -114,29 +114,6 @@ mkc() {
     echo "Commands: 'make', 'make run', 'make memcheck', 'make debug', 'make compile_commands', 'make clean'"
 }
 
-venv_activate() {
-    if [ -d ".venv" ]; then
-        echo "Virtual environment .venv already exists. Activating..."
-    else
-        echo "Virtual environment .venv not found. Creating one..."
-        python3 -m venv .venv
-        if [ $? -ne 0 ]; then
-            echo "Failed to create virtual environment. Make sure Python3 is installed and try again."
-            return 1
-        fi
-        echo "Virtual environment .venv created successfully."
-    fi
-
-    # Activate the virtual environment
-    echo "Activating .venv..."
-    source .venv/bin/activate
-    if [ $? -eq 0 ]; then
-        echo "Virtual environment .venv activated."
-    else
-        echo "Failed to activate virtual environment. Check for issues and try again."
-        return 1
-    fi
-}
 
 python_venv_autoloader() {
     # If a venv is currently active
@@ -156,17 +133,29 @@ python_venv_autoloader() {
     fi
 }
 
-autoload -U add-zsh-hook
-add-zsh-hook chpwd python_venv_autoloader
+venv_init() {
+    [[ -d ./.venv ]] && return
+    # Get the name of the current directory to use as the prompt
+    local project_name="${PWD:t}"
+    echo "Creating .venv for $project_name..."
+    if python3 -m venv .venv --prompt "$project_name"; then
+        python_venv_autoloader
+    else
+        echo "Creation failed."
+        return 1
+    fi
+}
 
 dnf-refresh-installed() {
     dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt
 }
 
+autoload -U add-zsh-hook
+add-zsh-hook chpwd python_venv_autoloader
+
 # bun completions
 [ -s "/home/valentino7504/.bun/_bun" ] && source "/home/valentino7504/.bun/_bun"
 python_venv_autoloader
-
 
 # for metrics uncomment
 # zprof
