@@ -13,7 +13,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 zstyle ':omz:update' frequency 15
 DISABLE_MAGIC_FUNCTIONS="true"
 DISABLE_COMPFIX="true"
-plugins=(git zsh-autosuggestions)
+plugins=(git asdf zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -23,15 +23,12 @@ source $ZSH/oh-my-zsh.sh
 ## Env Vars
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
 
 export BAT_PAGER=""
 export MANPAGER='nvim +Man!'
 export GTK_THEME=Adwaita:dark
-export GOPATH="$HOME/.go"
-export GRADLE_HOME=/opt/gradle/gradle-8.13
-export JAVA_HOME=/usr/lib/jvm/java-25-openjdk
-export PATH="$BUN_INSTALL/bin:$JAVA_HOME/bin:${GRADLE_HOME}/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
+. ~/.asdf/plugins/java/set-java-home.zsh
+export PATH="$HOME/.local/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/koda.yml"
 # editor
@@ -39,13 +36,6 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
     export EDITOR='nvim'
-fi
-
-# fnm
-FNM_PATH="/home/valentino7504/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-    export PATH="$FNM_PATH:$PATH"
-    eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 ## My Aliases
@@ -57,6 +47,9 @@ alias ls='eza --icons --color=auto --group-directories-first'
 alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
 alias lg="lazygit"
+alias dnf-refresh-installed="dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt"
+alias "asdf-plugin-refresh"="asdf plugin list --urls > .asdf-plugins"
+
 
 eval "$(zoxide init zsh)"
 
@@ -146,15 +139,10 @@ venv_init() {
     fi
 }
 
-dnf-refresh-installed() {
-    dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt
-}
-
 autoload -U add-zsh-hook
 add-zsh-hook chpwd python_venv_autoloader
 
 # bun completions
-[ -s "/home/valentino7504/.bun/_bun" ] && source "/home/valentino7504/.bun/_bun"
 python_venv_autoloader
 
 # for metrics uncomment
