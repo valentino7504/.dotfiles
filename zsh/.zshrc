@@ -4,23 +4,19 @@
 # 1. CORE ZSH SETTINGS & PATHS
 # ==============================================================================
 typeset -U path PATH
-path=(
-    "$HOME/.local/bin"
-    "$HOME/.local/share/nvim/mason/bin"
-    $path
-)
+path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" $path)
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
 setopt SHARE_HISTORY
-setopt EXTENDED_GLOB      # Required for the optimized compinit check below
+setopt EXTENDED_GLOB
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -v
 
 # ==============================================================================
-# 2. COMPLETION SYSTEM (Optimized compinit)
+# 2. COMPLETION SYSTEM
 # ==============================================================================
 eval "$(mise activate zsh)"
 
@@ -32,7 +28,6 @@ if [[ -n "$ZSH_COMPDUMP"(#qN.m-1) ]]; then
 else
     compinit -u -d "$ZSH_COMPDUMP"
 fi
-# Background compilation for next startup
 {
     if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
         zcompile "$ZSH_COMPDUMP"
@@ -40,6 +35,8 @@ fi
 } &!
 # Case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
+# uv completion
+eval "$(uv generate-shell-completion zsh)"
 
 # ==============================================================================
 # 3. THE ROBBYRUSSELL THEME
@@ -139,13 +136,6 @@ python_venv_autoloader() {
     if [[ -z "$VIRTUAL_ENV" && -d "./.venv" ]]; then
         source ./.venv/bin/activate
     fi
-}
-
-venv_init() {
-    [[ -d ./.venv ]] && return
-    local project_name="${PWD:t}"
-    echo "Creating .venv for $project_name..."
-    python3 -m venv .venv --prompt "$project_name" && python_venv_autoloader || return 1
 }
 
 autoload -U add-zsh-hook
