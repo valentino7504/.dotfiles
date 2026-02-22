@@ -40,7 +40,7 @@ sudo dnf install stow
 
 ### 2. Deploying Configurations
 
-Clone this repo and run the appropriate `stow` command.
+Clone this repo, pull the submodule(s) using `git submodule update --init --recursive` and run the appropriate `stow` command.
 
 ##### Deploy all packages:
 
