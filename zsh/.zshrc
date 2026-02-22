@@ -91,6 +91,7 @@ alias tree='eza --tree --icons --color=auto'
 alias lg="lazygit"
 alias dnf-refresh-installed='dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt'
 alias asdf-plugin-refresh='asdf plugin list --urls > .asdf-plugins'
+alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
 
 # ==============================================================================
 # 6. EXTERNAL PLUGINS
