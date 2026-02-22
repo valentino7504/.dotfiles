@@ -4,3 +4,6 @@ rust 1.93.1
 golang 1.26.0
 java openjdk-25.0.2
 python 3.14.3t
+dotnet 10.0.103
+zig 0.15.2
+neovim stable
