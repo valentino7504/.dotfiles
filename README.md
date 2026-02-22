@@ -15,6 +15,7 @@ The repo is organized by application and each folder mimics the structure of the
 ├── git                           # Links to ~/.gitconfig
 ├── ideavim                       # Links to ~/.ideavimrc
 ├── lazygit                       # Links to ~/.config/lazygit
+├── mise                          # Links to ~/.config/mise
 ├── nvim                          # Links to ~/.config/nvim
 ├── template_files                # Links to ~/.config/template-files
 ├── vim                           # Links to ~/.vimrc
@@ -102,7 +103,7 @@ Of course, if you are using the same `.stowrc` you can ignore the `-t ~`.
 | Tool                                                                 | What is it?                  |
 | -------------------------------------------------------------------- | ---------------------------- |
 | [Fedora](https://fedoraproject.org/)                                 | Daily driver OS              |
-| [Zsh](https://www.zsh.org/) with [Oh My Zsh](https://ohmyz.sh)       | Shell                        |
+| [Zsh](https://www.zsh.org/)                                          | Shell                        |
 | [Neovim](https://neovim.io/)                                         | Editor                       |
 | [Ghostty](https://ghostty.org/)                                      | Terminal                     |
 | [Yazi](https://github.com/sxyazi/yazi)                               | File manager                 |
@@ -110,7 +111,7 @@ Of course, if you are using the same `.stowrc` you can ignore the `-t ~`.
 | [Keyd](https://github.com/rvaiya/keyd)                               | Key remapping                |
 | [Shell Color Scripts](https://gitlab.com/dwt1/shell-color-scripts)   | Terminal colorscripts        |
 | [IntelliJ](https://www.jetbrains.com/idea) through JetBrains Toolbox | Java IDE                     |
-| [ASDF](https://asdf-vm.com/)                                         | Runtime version management   |
+| [Mise](https://mise.jdx.dev/)                                        | Runtime version management   |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide)                      | A smarter cd                 |
 | [Eza](https://github.com/eza-community/eza)                          | A modern alternative to `ls` |
 | [Bat](https://github.com/sharkdp/bat)                                | cat(1) with wings            |

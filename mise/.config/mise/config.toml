@@ -1,0 +1,12 @@
+[tools]
+bun = "latest"
+dotnet = "latest"
+eza = "latest"
+go = "latest"
+java = "openjdk-25.0.2"
+neovim = "stable"
+node = "latest"
+python = "3.14.3t"
+rust = "1.93.1"
+usage = "latest"
+zig = "latest"

@@ -3,10 +3,8 @@
 # ==============================================================================
 # 1. CORE ZSH SETTINGS & PATHS
 # ==============================================================================
-export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
 typeset -U path PATH
 path=(
-    "$ASDF_DATA_DIR/shims"
     "$HOME/.local/bin"
     "$HOME/.local/share/nvim/mason/bin"
     $path
@@ -24,8 +22,7 @@ bindkey -v
 # ==============================================================================
 # 2. COMPLETION SYSTEM (Optimized compinit)
 # ==============================================================================
-# Add asdf completions to fpath BEFORE compinit runs
-fpath=($ASDF_DATA_DIR/completions $fpath)
+eval "$(mise activate zsh)"
 
 ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
 autoload -Uz compinit
@@ -66,8 +63,6 @@ PROMPT+='$(git_prompt_info) '
 # ==============================================================================
 # 4. TOOLS & ENVIRONMENT
 # ==============================================================================
-# Source ASDF Java helper if it exists
-[[ -f "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh" ]] && . "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
 
 export BAT_PAGER=""
 export MANPAGER='nvim +Man!'
@@ -90,8 +85,7 @@ alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
 alias lg="lazygit"
 alias dnf-refresh-installed='dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt'
-alias asdf-plugin-refresh='asdf plugin list --urls > .asdf-plugins'
-alias update-nvim-stable='asdf uninstall neovim stable && asdf install neovim stable'
+alias update-nvim-stable='mise uninstall neovim stable && mise install neovim stable'
 
 # ==============================================================================
 # 6. EXTERNAL PLUGINS
