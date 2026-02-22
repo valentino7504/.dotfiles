@@ -1,7 +1,7 @@
 # zmodload zsh/zprof # uncomment for metrics (at the very top)
 
 # ==============================================================================
-# 1. CORE ZSH SETTINGS & PATHS
+# 1. CORE ZSH SETTINGS, KEYMAP SETTINGS & PATHS
 # ==============================================================================
 typeset -U path PATH
 path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" $path)
@@ -14,6 +14,8 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -v
+bindkey '^W' backward-kill-word
+bindkey -M viins '^?' backward-delete-char
 
 # ==============================================================================
 # 2. COMPLETION SYSTEM
@@ -67,6 +69,7 @@ export GTK_THEME=Adwaita:dark
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/koda.yml"
 export EDITOR=$([[ -n $SSH_CONNECTION ]] && echo 'vim' || echo 'nvim')
+export KEYTIMEOUT=1
 
 # Zoxide (Initialize after paths are set)
 eval "$(zoxide init zsh)"
