@@ -1,0 +1,30 @@
+# Background and foreground
+bold-is-bright = true
+background = #0e1415
+foreground = #cecece
+
+# Cursor colors
+cursor-color = #cecece
+cursor-text = #0e1415
+
+# Selection colors
+selection-background = #182325
+selection-foreground = #cecece
+
+# ANSI color palette (0-15)
+palette = 0=#0e1415
+palette = 1=#d2322d
+palette = 2=#95cb82
+palette = 3=#71ade7
+palette = 4=#708b8d
+palette = 5=#cc8bc9
+palette = 6=#cecece
+palette = 7=#a5adce
+palette = 8=#707070
+palette = 9=#ec8013
+palette = 10=#6abf40
+palette = 11=#dfdf8e
+palette = 12=#71ade7
+palette = 13=#cc8bc9
+palette = 14=#47bea9
+palette = 15=#cecece

@@ -13,6 +13,6 @@ return {
 				constants = {},
 			},
 		})
-		vim.cmd("colorscheme koda")
+		vim.cmd("colorscheme koda-moss")
 	end,
 }
