@@ -64,6 +64,8 @@ PROMPT+='$(git_prompt_info) '
 # ==============================================================================
 
 export BAT_PAGER=""
+export BAT_STYLE="plain"
+export BAT_THEME="DarkNeon"
 export MANPAGER='nvim +Man!'
 export GTK_THEME=Adwaita:dark
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
