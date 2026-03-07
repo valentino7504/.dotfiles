@@ -14,12 +14,14 @@ NetworkManager-wwan
 PackageKit-command-not-found
 PackageKit-gstreamer-plugin
 PackageKit-gtk3-module
+Z-Library
 aajohan-comfortaa-fonts
 abrt-cli
 abrt-desktop
 acl
 adobe-source-code-pro-fonts
 akmod-nvidia
+alsa-lib-devel
 alsa-sof-firmware
 alsa-ucm
 alsa-utils
@@ -106,6 +108,7 @@ default-fonts-other-serif
 deltarpm
 desktop-backgrounds-gnome
 dhcp-client
+diff-so-fancy
 discord
 dnf4-plugin-notify-PackageKit
 dnf5
