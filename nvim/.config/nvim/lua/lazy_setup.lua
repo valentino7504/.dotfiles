@@ -12,10 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "valentino7504.plugins" },
-	{ import = "valentino7504.plugins.lsp" },
-	{ import = "valentino7504.plugins.mini" },
-	{ import = "valentino7504.plugins.snacks" },
+	{ import = "plugins" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.mini" },
+	{ import = "plugins.snacks" },
 }, {
 	checker = {
 		enabled = true,

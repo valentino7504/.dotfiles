@@ -1,5 +1,5 @@
-require("valentino7504.core.options")
-require("valentino7504.core.keymaps")
+require("core.options")
+require("core.keymaps")
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function(args)
