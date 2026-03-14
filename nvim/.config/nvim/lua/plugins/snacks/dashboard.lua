@@ -19,7 +19,7 @@ return {
 						icon = "",
 						key = "lg",
 						desc = "LazyGit",
-						action = ":LazyGit",
+						action = ":lua Snacks.lazygit.open()",
 					},
 					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
 					{
