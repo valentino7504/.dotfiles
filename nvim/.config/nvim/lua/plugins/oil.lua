@@ -10,6 +10,7 @@ return {
 		{
 			"malewicz1337/oil-git.nvim",
 			dependencies = { "stevearc/oil.nvim" },
+			cmd = "Oil",
 			opts = {
 				show_file_highlights = true,
 				show_directory_highlights = false,
@@ -17,13 +18,16 @@ return {
 			},
 		},
 	},
-	lazy = false,
+	init = function()
+		vim.keymap.set("n", "<leader>_", function()
+			require("oil").toggle_float()
+		end, { desc = "Open Oil in parent directory of current buffer" })
+		vim.keymap.set("n", "-", function()
+			require("oil").toggle_float(vim.fn.getcwd())
+		end, { desc = "Open Oil in current working directory" })
+	end,
 	config = function()
 		local oil = require("oil")
-		local openCwd = function()
-			oil.toggle_float(vim.fn.getcwd())
-		end
-
 		oil.setup({
 			keymaps = {
 				["<BS>"] = { "actions.parent", mode = "n" },
@@ -39,7 +43,5 @@ return {
 				show_hidden = true,
 			},
 		})
-		vim.keymap.set("n", "<leader>_", oil.toggle_float, { desc = "Open Oil in parent directory of current buffer" })
-		vim.keymap.set("n", "-", openCwd, { desc = "Open Oil in current working directory" })
 	end,
 }
