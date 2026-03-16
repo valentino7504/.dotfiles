@@ -30,7 +30,7 @@ return {
 				},
 				request_timeout = 2.5,
 			})
-			vim.keymap.set("n", "<leader>mt", ":Minuet virtualtext enable<CR>", { desc = "Toggle AI completion" })
+			vim.keymap.set("n", "<leader>mt", ":Minuet virtualtext toggle<CR>", { desc = "Toggle AI completion" })
 		end,
 	},
 	{ "nvim-lua/plenary.nvim" },
