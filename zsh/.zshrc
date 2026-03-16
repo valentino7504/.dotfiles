@@ -86,7 +86,7 @@ alias ls='eza --icons --color=auto --group-directories-first'
 alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
 alias lg="lazygit"
-alias dnf-refresh-installed='dnf repoquery --userinstalled --qf "%{name}\n" > .dotfiles/installed-packages.txt'
+alias dnf-refresh-installed='dnf repoquery --userinstalled --qf "%{name}\n" > ~/.dotfiles/installed-packages.txt'
 alias update-nvim-stable='mise uninstall neovim stable && mise install neovim stable'
 
 # ==============================================================================
