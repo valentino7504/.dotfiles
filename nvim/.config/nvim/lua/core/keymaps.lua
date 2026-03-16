@@ -22,6 +22,9 @@ keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Execute curren
 keymap.set("n", "<space>x", ":.lua<CR>")
 keymap.set("v", "<space>x", ":lua<CR>")
 
+keymap.set("ia", ";-m", "—")
+keymap.set("ia", ";-n", "–")
+
 local function toggle_terminal()
 	local term_buf = nil
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
