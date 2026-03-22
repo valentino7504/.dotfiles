@@ -1,6 +1,10 @@
 return {
 	{
 		"milanglacier/minuet-ai.nvim",
+		lazy = true,
+		keys = {
+			{ "<leader>mt", ":Minuet virtualtext toggle<CR>", desc = "Toggle AI completion" },
+		},
 		config = function()
 			require("minuet").setup({
 				-- Your configuration options here
@@ -25,12 +29,11 @@ return {
 				virtualtext = {
 					auto_trigger_ft = {},
 					keymap = {
-						accept = "<Tab>",
+						accept = "<C-y>",
 					},
 				},
 				request_timeout = 2.5,
 			})
-			vim.keymap.set("n", "<leader>mt", ":Minuet virtualtext toggle<CR>", { desc = "Toggle AI completion" })
 		end,
 	},
 	{ "nvim-lua/plenary.nvim" },
