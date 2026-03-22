@@ -1,5 +1,6 @@
-CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Werror -g
+CC = zig cc
+CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -Wshadow -Werror -g -Isrc
+LDFLAGS = -lm
 OBJ_DIR = build
 BIN_DIR = bin
 
@@ -9,15 +10,17 @@ SRC = $(wildcard src/*.c)
 OBJ = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 TARGET = $(BIN_DIR)/main
 
+.PHONY: all clean run memcheck debug
+
 all: compile_commands.json $(TARGET)
 
 compile_commands.json: $(SRC)
-	bear -- make  $(TARGET)
+	bear -- $(MAKE)  $(TARGET)
 
 # Link step
 $(TARGET): $(OBJ)
 	@mkdir -p $(BIN_DIR)
-	$(CC) $(OBJ) -o $(TARGET)
+	$(CC) $(OBJ) -o $(TARGET) $(LDFLAGS)
 
 # Compile step
 $(OBJ_DIR)/%.o: src/%.c
