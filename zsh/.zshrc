@@ -4,7 +4,8 @@
 # 1. CORE ZSH SETTINGS, KEYMAP SETTINGS & PATHS
 # ==============================================================================
 typeset -U path PATH
-path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" $path)
+export GOPATH=$HOME/.local/share/go
+path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" "$GOPATH/bin" $path)
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
@@ -44,11 +45,15 @@ eval "$(uv generate-shell-completion zsh)"
 # 3. THE ROBBYRUSSELL THEME
 # ==============================================================================
 function git_prompt_info() {
-    local branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3)
+    # Quick exit if not in a git repo
+    command git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    local branch=$(command git symbolic-ref --short HEAD 2>/dev/null)
     [[ -z $branch ]] && return
 
     local dirty=""
-    if [[ -n $(git status -s 2> /dev/null) ]]; then
+    # Check for changes quietly
+    if ! command git diff --quiet HEAD 2>/dev/null; then
         dirty="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
     else
         dirty="%{$fg[blue]%})%{$reset_color%}"
@@ -92,8 +97,11 @@ alias update-nvim-stable='mise uninstall neovim stable && mise install neovim st
 # ==============================================================================
 # 6. EXTERNAL PLUGINS
 # ==============================================================================
-# Source autosuggestions (Must be sourced after compinit)
-[[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+AUTOSUGGEST_FILE="$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [[ -f "$AUTOSUGGEST_FILE" ]]; then
+    [[ ! "$AUTOSUGGEST_FILE".zwc -nt "$AUTOSUGGEST_FILE" ]] && zcompile "$AUTOSUGGEST_FILE"
+    source "$AUTOSUGGEST_FILE"
+fi
 
 # ==============================================================================
 # 7. CUSTOM FUNCTIONS (Yazi, C Project, Venv)
@@ -124,9 +132,11 @@ mkc() {
         -e "s/{{AUTHOR}}/${author_name:-"User"}/g" \
         -e "s/{{DATE}}/$current_date/g" \
         "$template_dir/code/c/main.c.tmplt" > src/main.c
-
-    command -v bear >/dev/null 2>&1 && bear -- make all >/dev/null 2>&1 || make all >/dev/null 2>&1
-
+    if (( $+commands[bear] )); then
+        bear -- make all >/dev/null 2>&1
+    else
+        make all >/dev/null 2>&1
+    fi
     cp ~/.config/template-files/code/c/.clang-format ./.clang-format
     cp ~/.config/template-files/code/c/.gdbinit ./.gdbinit
     echo "C project '$name' initialized."

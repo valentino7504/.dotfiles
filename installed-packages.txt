@@ -288,9 +288,9 @@ kernel-modules-core
 kernel-modules-extra
 kexec-tools
 keyd
-kmod-nvidia-6.18.12-200.fc43.x86_64
 kmod-nvidia-6.18.16-200.fc43.x86_64
 kmod-nvidia-6.19.7-200.fc43.x86_64
+kmod-nvidia-6.19.8-200.fc43.x86_64
 langpacks-core-en_GB
 langpacks-en_GB
 lazygit
