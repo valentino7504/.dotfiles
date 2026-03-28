@@ -1,2 +1,5 @@
 README.md
 install.sh
+installed-packages.txt
+.gitignore
+.gitmodules
