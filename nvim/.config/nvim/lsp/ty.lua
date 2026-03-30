@@ -1,4 +1,4 @@
-vim.lsp.config("ty", {
+return {
 	settings = {
 		ty = {
 			inlayHints = {
@@ -10,4 +10,4 @@ vim.lsp.config("ty", {
 	on_attach = function()
 		vim.lsp.inlay_hint.enable(true)
 	end,
-})
+}

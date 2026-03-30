@@ -1,4 +1,4 @@
-vim.lsp.config("ts_ls", {
+return {
 	filetypes = {
 		"typescript",
 		"typescriptreact",
@@ -15,4 +15,4 @@ vim.lsp.config("ts_ls", {
 	-- 		end
 	-- 	end,
 	-- },
-})
+}

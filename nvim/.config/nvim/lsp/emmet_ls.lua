@@ -1,4 +1,4 @@
-vim.lsp.config("emmet_ls", {
+return {
 	filetypes = {
 		"html",
 		"css",
@@ -8,4 +8,4 @@ vim.lsp.config("emmet_ls", {
 		"svelte",
 		"gotmpl",
 	},
-})
+}

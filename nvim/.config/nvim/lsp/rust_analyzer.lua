@@ -1,4 +1,4 @@
-vim.lsp.config("rust_analyzer", {
+return {
 	settings = {
 		["rust-analyzer"] = {
 			cachePriming = { enable = true },
@@ -15,4 +15,4 @@ vim.lsp.config("rust_analyzer", {
 			},
 		},
 	},
-})
+}

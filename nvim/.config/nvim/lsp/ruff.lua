@@ -1,4 +1,4 @@
-vim.lsp.config("ruff", {
+return {
 	init_options = {
 		settings = {
 			-- Pass your specific strictness flags directly to the server
@@ -7,4 +7,4 @@ vim.lsp.config("ruff", {
 			},
 		},
 	},
-})
+}
