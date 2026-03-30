@@ -4,10 +4,8 @@ return {
 		branch = "main",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
-		config = function()
-			local ts = require("nvim-treesitter")
-
-			local parsers = {
+		opts = {
+			ensure_installed = {
 				"json",
 				"javascript",
 				"typescript",
@@ -30,22 +28,33 @@ return {
 				"gomod",
 				"dockerfile",
 				"rust",
-			}
-
-			ts.install(parsers)
-
-			-- vim.api.nvim_create_autocmd("FileType", {
-			-- 	group = vim.api.nvim_create_augroup("treesitter_features", { clear = true }),
-			-- 	callback = function(ev)
-			-- 		local lang = ev.match
-			-- 		pcall(vim.treesitter.start, ev.buf, lang)
-			-- 		vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-			-- 	end,
-			-- })
-		end,
+			},
+			auto_install = true,
+			ignore_install = {},
+			highlight = {
+				enable = true,
+			},
+			indent = { enable = true, disable = { "python" } },
+			autotag = {
+				enable = true,
+			},
+		},
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		ft = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "xml" },
+		ft = {
+			"html",
+			"tsx",
+			"jsx",
+			"markdown",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"xml",
+		},
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
 	},
 }
