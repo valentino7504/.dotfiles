@@ -23,11 +23,8 @@ keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute curr
 keymap.set("n", "<leader>x", ":.lua<CR>")
 keymap.set("v", "<leader>x", ":lua<CR>")
 
-keymap.set("n", "<leader>Gd", "<cmd>GoDoc<CR>", { noremap = true, silent = true, desc = "Open Go docs" })
-keymap.set("n", "<leader>Gp", "<cmd>PyDoc<CR>", { noremap = true, silent = true, desc = "Open Python docs" })
-keymap.set("n", "<leader>ss", function()
-	vim.cmd("mksession! " .. vim.fn.getcwd() .. "/.session.vim")
-end, { desc = "Save session" })
+keymap.set("n", "<leader>ss", utils.save_session, { desc = "Save session" })
+keymap.set("n", "<leader>sr", utils.restore_session, { desc = "Restore session" })
 
 keymap.set("ia", ";-m", "—")
 keymap.set("ia", ";-n", "–")

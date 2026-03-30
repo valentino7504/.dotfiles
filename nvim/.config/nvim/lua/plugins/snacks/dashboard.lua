@@ -21,7 +21,12 @@ return {
 						desc = "LazyGit",
 						action = ":lua Snacks.lazygit.open()",
 					},
-					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+					{
+						icon = " ",
+						key = "s",
+						desc = "Restore Session",
+						action = require("core.utils").restore_session,
+					},
 					{
 						icon = "󰒲 ",
 						key = "L",

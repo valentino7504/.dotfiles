@@ -1,5 +1,21 @@
 local M = {}
 
+local session_path = vim.fn.getcwd() .. "/.session.vim"
+
+M.restore_session = function()
+	if vim.fn.filereadable(session_path) == 1 then
+		vim.cmd("source " .. session_path)
+		vim.notify("Session restored from " .. session_path, vim.log.levels.INFO)
+	else
+		vim.notify("No session available to load")
+	end
+end
+
+M.save_session = function()
+	vim.cmd("mksession! " .. session_path)
+	vim.notify("Session saved to " .. session_path, vim.log.levels.INFO)
+end
+
 M.toggle_terminal = function()
 	local term_buf = nil
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
