@@ -1,4 +1,3 @@
--- vim.cmd("let g:netrw_liststyle=3")
 local opt = vim.opt
 opt.clipboard:append("unnamedplus")
 opt.relativenumber = true
