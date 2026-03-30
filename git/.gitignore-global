@@ -1,0 +1,12 @@
+# Vim
+*.swp
+*.swo
+.session.vim
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Environment
+.env
