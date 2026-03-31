@@ -3,14 +3,26 @@ return {
 	cmd = "Oil",
 	---@module 'oil'
 	---@type oil.SetupOpts
-	opts = {},
-	-- Optional dependencies
+	keys = {
+		{
+			"-",
+			function()
+				require("oil").toggle_float(vim.fn.getcwd())
+			end,
+			desc = "Open Oil in current working directory",
+		},
+		{
+			"<leader>_",
+			function()
+				require("oil").toggle_float()
+			end,
+			desc = "Open Oil in parent directory of current buffer",
+		},
+	},
 	dependencies = {
 		{ "echasnovski/mini.icons", opts = {} },
 		{
 			"malewicz1337/oil-git.nvim",
-			dependencies = { "stevearc/oil.nvim" },
-			cmd = "Oil",
 			opts = {
 				show_file_highlights = true,
 				show_directory_highlights = false,
@@ -18,13 +30,30 @@ return {
 			},
 		},
 	},
-	init = function()
-		vim.keymap.set("n", "<leader>_", function()
-			require("oil").toggle_float()
-		end, { desc = "Open Oil in parent directory of current buffer" })
-		vim.keymap.set("n", "-", function()
-			require("oil").toggle_float(vim.fn.getcwd())
-		end, { desc = "Open Oil in current working directory" })
+	init = function(p)
+		if vim.fn.argc() == 1 then
+			local argv = tostring(vim.fn.argv(0))
+			local stat = vim.loop.fs_stat(argv)
+
+			local remote_dir_args = vim.startswith(argv, "ssh")
+				or vim.startswith(argv, "sftp")
+				or vim.startswith(argv, "scp")
+
+			if stat and stat.type == "directory" or remote_dir_args then
+				require("lazy").load({ plugins = { p.name } })
+			end
+		end
+		if not require("lazy.core.config").plugins[p.name]._.loaded then
+			vim.api.nvim_create_autocmd("BufNew", {
+				callback = function()
+					if vim.fn.isdirectory(vim.fn.expand("<afile>")) == 1 then
+						require("lazy").load({ plugins = { "oil.nvim" } })
+						-- Once oil is loaded, we can delete this autocmd
+						return true
+					end
+				end,
+			})
+		end
 	end,
 	config = function()
 		local oil = require("oil")
