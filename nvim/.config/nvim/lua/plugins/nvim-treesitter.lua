@@ -52,8 +52,6 @@ return {
 			"typescriptreact",
 			"xml",
 		},
-		config = function()
-			require("nvim-ts-autotag").setup()
-		end,
+    opts = {},
 	},
 }

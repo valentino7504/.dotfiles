@@ -55,22 +55,19 @@ return {
 			})
 		end
 	end,
-	config = function()
-		local oil = require("oil")
-		oil.setup({
-			keymaps = {
-				["<BS>"] = { "actions.parent", mode = "n" },
-				["q"] = { "actions.close", mode = "n" },
-				["<Esc>"] = { "actions.close", mode = "n" },
-				["-"] = false,
-				["_"] = false,
-			},
-			win_options = {
-				signcolumn = "yes:2",
-			},
-			view_options = {
-				show_hidden = true,
-			},
-		})
-	end,
+	opts = {
+		keymaps = {
+			["<BS>"] = { "actions.parent", mode = "n" },
+			["q"] = { "actions.close", mode = "n" },
+			["<Esc>"] = { "actions.close", mode = "n" },
+			["-"] = false,
+			["_"] = false,
+		},
+		win_options = {
+			signcolumn = "yes:2",
+		},
+		view_options = {
+			show_hidden = true,
+		},
+	},
 }

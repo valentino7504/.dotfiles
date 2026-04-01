@@ -2,6 +2,7 @@
 local hint_allowed_list = {
 	["ty"] = true,
 	["rust_analyzer"] = true,
+	["gopls"] = true,
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
