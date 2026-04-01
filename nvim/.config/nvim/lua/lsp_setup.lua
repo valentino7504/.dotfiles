@@ -21,6 +21,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.diagnostic.config({
+	virtual_text = false,
+	virtual_lines = false, -- these two are off because of tiny inline diagnostics
 	float = { border = "single" },
 	signs = {
 		text = {
