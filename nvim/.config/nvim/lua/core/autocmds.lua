@@ -26,3 +26,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = ev.buf, silent = true })
 	end,
 })
+
+-- Use treesitter for syntax highlighting
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})

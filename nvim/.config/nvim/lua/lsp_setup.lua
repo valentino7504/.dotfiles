@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client == nil then
 			return
 		end
+		client.server_capabilities.semanticTokensProvider = nil
 		if hint_allowed_list[client.name] then
 			if client.server_capabilities.inlayHintProvider then
 				vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
