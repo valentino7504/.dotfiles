@@ -18,3 +18,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank({ timeout = 200 })
 	end,
 })
+
+-- Use q to exit undotree
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nvim-undotree",
+	callback = function(ev)
+		vim.keymap.set("n", "q", "<cmd>q<cr>", { buffer = ev.buf, silent = true })
+	end,
+})

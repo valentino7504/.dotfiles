@@ -79,13 +79,6 @@ return {
 			desc = "LSP Symbols",
 		},
 		{
-			"<leader>uC",
-			function()
-				Snacks.picker.colorschemes()
-			end,
-			desc = "Colorschemes",
-		},
-		{
 			"<leader>D",
 			function()
 				Snacks.picker.diagnostics()
