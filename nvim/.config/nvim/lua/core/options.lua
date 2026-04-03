@@ -1,22 +1,34 @@
 local opt = vim.opt
-opt.clipboard:append("unnamedplus")
+
+-- Line numbers
 opt.relativenumber = true
 opt.number = true
+
+-- Indentation
 opt.autoindent = false
 opt.smartindent = true
-opt.wrap = false
-opt.ignorecase = true
-opt.smartcase = true
-opt.cursorline = true
-opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
-opt.backspace = "indent,eol,start"
-opt.splitright = true
-opt.splitbelow = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
-opt.mouse = ""
-opt.guicursor = "n-v-c:block,i:block-blinkwait400-blinkon200-blinkoff100"
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
+
+-- Splits
+opt.splitright = true
+opt.splitbelow = true
+
+-- Appearance
+opt.termguicolors = true
+opt.background = "dark"
+opt.cursorline = true
+opt.signcolumn = "yes"
 opt.winborder = "rounded"
+opt.wrap = false
+opt.guicursor = "n-v-c:block,i:block-blinkwait400-blinkon200-blinkoff100"
+
+-- Behaviour
+opt.clipboard:append("unnamedplus")
+opt.backspace = "indent,eol,start"
+opt.mouse = ""
