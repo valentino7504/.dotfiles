@@ -74,7 +74,7 @@ export MANPAGER='nvim +Man!'
 export GTK_THEME=Adwaita:dark
 export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=true"
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/rosepine.yml"
-export EDITOR=$([[ -n $SSH_CONNECTION ]] && echo 'vim' || echo 'nvim')
+export EDITOR="vim"
 export KEYTIMEOUT=1
 
 # Zoxide (Initialize after paths are set)
