@@ -4,11 +4,6 @@ return {
 	opts = {
 		picker = {
 			enabled = true,
-			layout = {
-				layout = {
-					backdrop = false,
-				},
-			},
 		},
 	},
 	keys = {

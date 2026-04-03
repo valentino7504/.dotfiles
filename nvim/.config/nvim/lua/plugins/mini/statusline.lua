@@ -29,29 +29,30 @@ return {
 		timer:start(5 * 60 * 1000, 5 * 60 * 1000, fetch_wakatime)
 
 		require("mini.statusline").setup({
+			config = {
+				use_icons = true,
+			},
 			content = {
 				active = function()
-					local mode, location, git, diag, fileinfo, filename, lsp =
-						MiniStatusline.section_mode({}),
+					local mode, mode_hl = MiniStatusline.section_mode({})
+					local location, git, diag, fileinfo, filename, lsp, search_count =
 						MiniStatusline.section_location({}),
 						MiniStatusline.section_git({}),
 						MiniStatusline.section_diagnostics({}),
-						MiniStatusline.section_fileinfo({}),
-						MiniStatusline.section_filename({}),
-						MiniStatusline.section_lsp({})
-
-					local time = os.date("%I:%M%p")
+						MiniStatusline.section_fileinfo({ trunc_width = 9999999999999 }),
+						MiniStatusline.section_filename({ trunc_width = 9999999999999 }),
+						MiniStatusline.section_lsp({}),
+						MiniStatusline.section_searchcount({})
 
 					return MiniStatusline.combine_groups({
-						{ hl = "MiniStatuslineModeNormal", strings = { mode } },
-						{ hl = "MiniStatuslineDevinfo", strings = { lsp, git, diag } },
+						{ hl = mode_hl, strings = { mode } },
+						{ hl = "MiniStatuslineDevinfo", strings = { git, lsp, diag } },
 						"%<",
 						{ hl = "MiniStatuslineFilename", strings = { filename } },
 						"%=",
 						{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-						{ hl = "MiniStatuslineModeOther", strings = { location } },
+						{ hl = "MiniStatuslineInactive", strings = { location } },
 						{ hl = "MiniStatuslineModeNormal", strings = { wakatime_time } },
-						{ hl = "MiniStatuslineModeNormal", strings = { " " .. time } },
 					})
 				end,
 			},
