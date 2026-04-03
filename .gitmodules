@@ -1,3 +1,6 @@
 [submodule "zsh/.zsh/zsh-autosuggestions"]
 	path = zsh/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "vim/.vim/pack/plugins/start/rose-pine"]
+	path = vim/.vim/pack/plugins/start/rose-pine
+	url = https://github.com/rose-pine/vim.git
