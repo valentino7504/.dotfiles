@@ -46,4 +46,4 @@ keymap.set("i", "<up>", "<nop>", { noremap = true })
 keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 -- Neovim
-keymap.set("n", "<leader>rs", "<cmd>restart<CR>", { desc = "Restart Neovim" })
+keymap.set("n", "<leader>rs", vim.cmd.restart, { desc = "Restart Neovim" })
