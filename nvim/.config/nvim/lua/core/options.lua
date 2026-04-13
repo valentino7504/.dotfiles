@@ -4,12 +4,13 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
--- Indentation
+-- Indentation and columns
 opt.autoindent = false
 opt.smartindent = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
+opt.colorcolumn = "79"
 
 -- Search
 opt.ignorecase = true
