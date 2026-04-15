@@ -1,9 +1,9 @@
 return {
 	"oskarnurm/koda.nvim",
-	lazy = true,
+	cmd = "KodaFetch",
+	-- priority = 1000,
 	config = function()
 		require("koda").setup({
-			transparent = true,
 			auto = true,
 			cache = true,
 			styles = {
@@ -14,5 +14,6 @@ return {
 				constants = {},
 			},
 		})
+		-- vim.cmd("colorscheme koda-moss")
 	end,
 }

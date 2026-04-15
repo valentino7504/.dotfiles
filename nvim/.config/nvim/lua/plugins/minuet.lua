@@ -1,6 +1,5 @@
 return {
 	"milanglacier/minuet-ai.nvim",
-	lazy = true,
 	keys = {
 		{ "<leader>mt", ":Minuet virtualtext toggle<CR>", desc = "Toggle AI completion" },
 	},
