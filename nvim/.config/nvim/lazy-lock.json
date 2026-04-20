@@ -13,7 +13,7 @@
   "mini.comment": { "branch": "main", "commit": "8e5ff3ed3cc0e8f216617aae01020c00c20f7a87" },
   "mini.icons": { "branch": "main", "commit": "bac6317300e205335df425296570d84322730067" },
   "mini.statusline": { "branch": "main", "commit": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b" },
-  "minuet-ai.nvim": { "branch": "main", "commit": "5593caf2686766259bd05b2a182c270c4aa92bf7" },
+  "minuet-ai.nvim": { "branch": "main", "commit": "ee03326381c93f6417fa66aeb2ca85a26c0706e7" },
   "nvim-lint": { "branch": "master", "commit": "eab58b48eb11d7745c11c505e0f3057165902461" },
   "nvim-lspconfig": { "branch": "master", "commit": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
@@ -23,7 +23,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "0fd43fb4b1f073931c4b481f5f3b7cea3749e190" },
   "rose-pine": { "branch": "main", "commit": "9504524e5ed0e326534698f637f9d038ba4cd0ee" },
   "snacks.nvim": { "branch": "main", "commit": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e" },
-  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "57a0eb84b2008c76e77930639890d9874195b1e1" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "b3b91e086795c036ecfe70429b72b26bcb302c91" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "vim-wakatime": { "branch": "master", "commit": "cb7ba055330245b3a9d29f8bb4b82aeb2d52e580" }

@@ -1,10 +1,10 @@
-font-family = Monaspace Neon NF
-font-family-italic = Monaspace Radon NF
-font-family-bold = Monaspace Argon NF
-font-family-bold-italic = Monaspace Krypton NF
-
+# font-family = Monaspace Neon NF
+# font-family-italic = Monaspace Radon NF
+# font-family-bold = Monaspace Argon NF
+# font-family-bold-italic = Monaspace Krypton NF
+font-family = JetBrainsMono Nerd Font
 font-size = 12
-font-feature = -calt, -liga, -dlig
+# font-feature = -calt, -liga, -dlig
 
 theme = rosepine
 cursor-style = block
@@ -17,7 +17,7 @@ keybind = ctrl+tab=next_tab
 keybind = ctrl+shift+tab=previous_tab
 window-padding-y = 10,0
 
-# background-opacity = 0.9
+background-opacity = 0.9
 gtk-titlebar-hide-when-maximized = true
 
 font-thicken = true
