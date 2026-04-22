@@ -59,4 +59,45 @@ M.toggle_terminal = function()
 	end
 end
 
+M.notification_history = function()
+	local output = vim.fn.execute("messages")
+	local raw = vim.split(output, "\n", { trimempty = true })
+
+	if #raw == 0 then
+		vim.notify("No messages from this session.", vim.log.levels.INFO)
+		return
+	end
+
+	local lines = {}
+	for i, line in ipairs(raw) do
+		lines[i] = string.format("%d. %s", i, line)
+	end
+
+	local buf = vim.api.nvim_create_buf(false, true)
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+	vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
+	vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
+
+	local width = math.floor(vim.o.columns * 0.6)
+	local height = math.min(#lines, math.floor(vim.o.lines * 0.4))
+	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.floor((vim.o.columns - width) / 2)
+
+	local win = vim.api.nvim_open_win(buf, true, {
+		relative = "editor",
+		row = row,
+		col = col,
+		width = width,
+		height = height,
+		border = "rounded",
+		title = " Messages ",
+		title_pos = "center",
+		style = "minimal",
+	})
+
+	vim.keymap.set("n", "q", function()
+		vim.api.nvim_win_close(win, true)
+	end, { buffer = buf, silent = true })
+end
+
 return M

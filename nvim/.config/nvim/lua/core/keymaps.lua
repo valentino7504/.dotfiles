@@ -47,3 +47,4 @@ keymap.set("i", "<down>", "<nop>", { noremap = true })
 
 -- Neovim
 keymap.set("n", "<leader>rs", vim.cmd.restart, { desc = "Restart Neovim" })
+keymap.set("n", "<leader>nl", utils.notification_history, { desc = "Show notification history" })

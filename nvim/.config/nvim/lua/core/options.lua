@@ -22,6 +22,7 @@ opt.splitbelow = true
 
 -- Appearance
 opt.termguicolors = true
+opt.cmdheight = 1
 opt.background = "dark"
 opt.cursorline = true
 opt.signcolumn = "yes"
