@@ -37,7 +37,7 @@ return {
 				["<BS>"] = { callback = "actions.parent" },
 				["q"] = { callback = "actions.close" },
 				["<Esc>"] = { callback = "actions.close" },
-				["-"] = { callback = "" },
+				["-"] = { callback = "actions.close" },
 			},
 			columns = { "git_status", "icon" },
 		}
