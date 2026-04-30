@@ -1,10 +1,5 @@
-# font-family = Monaspace Neon NF
-# font-family-italic = Monaspace Radon NF
-# font-family-bold = Monaspace Argon NF
-# font-family-bold-italic = Monaspace Krypton NF
 font-family = JetBrainsMono Nerd Font
 font-size = 12
-# font-feature = -calt, -liga, -dlig
 
 theme = Rose Pine
 cursor-style = block
