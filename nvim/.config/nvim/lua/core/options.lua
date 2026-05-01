@@ -29,6 +29,7 @@ opt.signcolumn = "yes"
 opt.winborder = "rounded"
 opt.wrap = false
 opt.guicursor = "n-v-c:block,i:block-blinkwait400-blinkon200-blinkoff100"
+opt.scrolloff = 8
 
 -- Behaviour
 opt.clipboard:append("unnamedplus")
