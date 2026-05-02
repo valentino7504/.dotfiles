@@ -48,3 +48,7 @@ keymap.set("i", "<down>", "<nop>", { noremap = true })
 -- Neovim
 keymap.set("n", "<leader>rs", vim.cmd.restart, { desc = "Restart Neovim" })
 keymap.set("n", "<leader>nl", utils.notification_history, { desc = "Show notification history" })
+
+-- Temporary placeholder for shortmess+=u
+keymap.set("n", "u", ":silent undo<CR>", { desc = "Silent undo" })
+keymap.set("n", "<C-r>", ":silent redo<CR>", { desc = "Silent redo" })

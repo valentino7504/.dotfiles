@@ -33,5 +33,6 @@ opt.scrolloff = 8
 
 -- Behaviour
 opt.clipboard:append("unnamedplus")
+-- opt.shortmess:append("u") for next version bump
 opt.backspace = "indent,eol,start"
 opt.mouse = ""
