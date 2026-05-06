@@ -45,19 +45,27 @@ eval "$(uv generate-shell-completion zsh)"
 # 3. THE ROBBYRUSSELL THEME
 # ==============================================================================
 function git_prompt_info() {
-    # Quick exit if not in a git repo
     command git rev-parse --is-inside-work-tree &>/dev/null || return
-
     local branch=$(command git symbolic-ref --short HEAD 2>/dev/null)
     [[ -z $branch ]] && return
 
     local dirty=""
-    # Check for changes quietly
-    if ! command git diff --quiet HEAD 2>/dev/null; then
+    local has_changes=false
+
+    if ! command git diff --cached --quiet 2>/dev/null; then
+        has_changes=true
+    elif ! command git diff --quiet 2>/dev/null; then
+        has_changes=true
+    elif [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]]; then
+        has_changes=true
+    fi
+
+    if $has_changes; then
         dirty="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
     else
         dirty="%{$fg[blue]%})%{$reset_color%}"
     fi
+
     echo "%{$fg_bold[blue]%}git:(%{$fg[red]%}${branch}${dirty}"
 }
 
