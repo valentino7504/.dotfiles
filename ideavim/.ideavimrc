@@ -54,4 +54,4 @@ xmap S <Action>(flash.treesitter)
 " remote operator (after pressing an operator like d, use r to pick target line remotely)
 omap r <Action>(flash.remote)
 " Remap 'n' in NERDTree to use the IntelliJ New Element dialog
-autocmd FileType nerdtree nmap <buffer> n <Action>(NewElement)
+" autocmd FileType nerdtree nmap <buffer> n <Action>(NewElement)
