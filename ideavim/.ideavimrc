@@ -5,6 +5,8 @@ set relativenumber
 set showmode
 set showcmd
 set visualbell
+set which-key
+set timeoutlen=4000
 
 set clipboard+=unnamedplus
 set ignorecase
@@ -29,8 +31,7 @@ nmap <Leader>gr <Action>(FindUsages)
 
 " Search for string in visible area and jump
 nmap s <Action>(flash.search)
-xmap s <Action>(flash.search)
-" enhance vim f (find for char in characters to the right of the current cursor)
+xmap s <Action>(flash.search) " enhance vim f (find for char in characters to the right of the current cursor)
 nmap f <Action>(flash.find)
 xmap f <Action>(flash.find)
 " enhance vim F (find for char in characters to the left of the current cursor)
