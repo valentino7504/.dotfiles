@@ -3,6 +3,9 @@ return {
 	config = function()
 		require("arborist").setup({
 			update_cadence = "weekly",
+			ignore = {
+				"canola",
+			},
 		})
 	end,
 }
