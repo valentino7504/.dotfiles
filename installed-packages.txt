@@ -28,6 +28,7 @@ anaconda-install-env-deps
 anaconda-live
 aribb25
 ark
+asciinema
 at
 at-spi2-atk
 at-spi2-core
@@ -44,6 +45,7 @@ bash-color-prompt
 bash-completion
 bat
 bc
+bear
 bind-utils
 bluedevil
 bluez-cups
@@ -385,6 +387,7 @@ open-vm-tools-desktop
 openapv-libs
 openblas-openmp
 opensc
+openssh-askpass
 openssh-clients
 openssh-server
 orca
@@ -515,6 +518,7 @@ sos
 spandsp
 spectacle
 speech-dispatcher
+speedtest-cli
 speexdsp
 spice-vdagent
 spice-webdavd
