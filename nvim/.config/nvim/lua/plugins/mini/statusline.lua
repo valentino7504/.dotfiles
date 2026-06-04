@@ -35,20 +35,19 @@ return {
 			content = {
 				active = function()
 					local mode, mode_hl = MiniStatusline.section_mode({})
-					local location, git, diag, fileinfo, filename, lsp, search_count =
+					local location, git, diag, fileinfo, _, lsp =
 						MiniStatusline.section_location({}),
 						MiniStatusline.section_git({}),
 						MiniStatusline.section_diagnostics({}),
 						MiniStatusline.section_fileinfo({ trunc_width = 9999999999999 }),
 						MiniStatusline.section_filename({ trunc_width = 9999999999999 }),
-						MiniStatusline.section_lsp({}),
-						MiniStatusline.section_searchcount({})
+						MiniStatusline.section_lsp({})
 
 					return MiniStatusline.combine_groups({
 						{ hl = mode_hl, strings = { mode } },
 						{ hl = "MiniStatuslineDevinfo", strings = { git, lsp, diag } },
 						"%<",
-						{ hl = "MiniStatuslineFilename", strings = { filename } },
+						-- { hl = "MiniStatuslineFilename", strings = { filename } },
 						"%=",
 						{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
 						{ hl = "MiniStatuslineInactive", strings = { location } },

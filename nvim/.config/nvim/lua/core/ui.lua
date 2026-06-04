@@ -61,3 +61,46 @@ msgs.set_pos = function(tgt)
 		})
 	end
 end
+
+local function tabline()
+	local s = ""
+	for i = 1, vim.fn.tabpagenr("$") do
+		local winnr = vim.fn.tabpagewinnr(i)
+		local bufnr = vim.fn.tabpagebuflist(i)[winnr]
+		local bufname = vim.fn.bufname(bufnr)
+		local filename = bufname ~= "" and vim.fn.fnamemodify(bufname, ":t") or "[No Name]"
+		local modified = vim.bo[bufnr].modified
+
+		if i == vim.fn.tabpagenr() then
+			s = s .. "%#TabLineSel#"
+		else
+			s = s .. "%#TabLine#"
+		end
+
+		s = s .. " %" .. i .. "T"
+		if i > 1 then
+			s = s .. "▎ "
+		end
+		s = s .. filename
+
+		if modified then
+			s = s .. " %#TabLineModified#●"
+			if i == vim.fn.tabpagenr() then
+				s = s .. "%#TabLineSel#"
+			else
+				s = s .. "%#TabLine#"
+			end
+		end
+
+		s = s .. " "
+	end
+
+	s = s .. "%#TabLineFill#%T"
+	return s
+end
+
+_G.MyTabline = tabline
+vim.o.tabline = "%!v:lua.MyTabline()"
+
+vim.api.nvim_set_hl(0, "TabLineModified", { link = "DiagnosticWarn" })
+vim.api.nvim_set_hl(0, "TabLineFill", { link = "StatusLine" })
