@@ -33,6 +33,7 @@ return {
 	init = function()
 		vim.g.canola = {
 			highlights = { columns = true },
+			hidden = { enabled = false },
 			extglob = true,
 			float = { border = "single" },
 			keymaps = {
