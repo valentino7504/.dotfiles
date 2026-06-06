@@ -98,6 +98,7 @@ alias ll='eza --icons --color=auto -alh --group-directories-first'
 alias tree='eza --tree --icons --color=auto'
 alias lg="lazygit"
 alias dnf-refresh-installed='dnf repoquery --userinstalled --qf "%{name}\n" > ~/.dotfiles/installed-packages.txt'
+alias top="btop"
 
 # ==============================================================================
 # 6. EXTERNAL PLUGINS
@@ -148,14 +149,20 @@ mkc() {
 }
 
 python_venv_autoloader() {
-    if [[ -n "$VIRTUAL_ENV" ]]; then
-        if [[ "$PWD" != "${VIRTUAL_ENV%/*}"* ]]; then
-            deactivate
-        fi
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+    if [[ -d ./.venv ]] ; then
+      source ./.venv/bin/activate
     fi
-    if [[ -z "$VIRTUAL_ENV" && -d "./.venv" ]]; then
-        source ./.venv/bin/activate
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+    parentdir="$(dirname "$VIRTUAL_ENV")"
+    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+      deactivate
     fi
+  fi
 }
 
 autoload -U add-zsh-hook
