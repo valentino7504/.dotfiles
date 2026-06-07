@@ -5,7 +5,7 @@
 # ==============================================================================
 typeset -U path PATH
 export GOPATH=$HOME/.local/share/go
-path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" "$GOPATH/bin" $path)
+path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" "$GOPATH/bin" "$HOME/.spicetify" $path)
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
