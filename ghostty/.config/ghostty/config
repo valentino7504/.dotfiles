@@ -12,7 +12,7 @@ keybind = ctrl+tab=next_tab
 keybind = ctrl+shift+tab=previous_tab
 window-padding-y = 10,0
 
-background-opacity = 0.9
+background-opacity = 0.8
 gtk-titlebar-hide-when-maximized = true
 
 font-thicken = true
