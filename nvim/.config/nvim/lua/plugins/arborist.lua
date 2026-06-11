@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("arborist").setup({
 			update_cadence = "weekly",
+			prefer_wasm = false,
 			ignore = {
 				"canola",
 				"snacks_dashboard",
