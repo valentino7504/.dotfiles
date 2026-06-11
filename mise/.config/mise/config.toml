@@ -4,12 +4,17 @@ dotnet = "latest"
 eza = "latest"
 go = "latest"
 java = "openjdk-25.0.2"
-neovim = "0.12.2"
+neovim = "0.12.3"
 node = "latest"
-python = "latest"
+python = "3.14.5"
 rust = "latest"
 usage = "latest"
 uv = "latest"
 zig = "latest"
 gemini-cli = "latest"
 tree-sitter = "latest"
+
+[settings]
+
+[settings.python]
+compile = false
