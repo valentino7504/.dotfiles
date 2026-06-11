@@ -30,6 +30,7 @@ if [[ -n "$ZSH_COMPDUMP"(#qN.m-1) ]]; then
     compinit -u -C -d "$ZSH_COMPDUMP"
 else
     compinit -u -d "$ZSH_COMPDUMP"
+    touch "$ZSH_COMPDUMP"
 fi
 {
     if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
