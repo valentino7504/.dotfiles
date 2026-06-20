@@ -75,6 +75,7 @@ boost-wave
 brcmfmac-firmware
 breeze-icon-theme
 brltty
+btop
 btrfs-progs
 bzip2
 chrony
@@ -96,6 +97,7 @@ cups-pk-helper
 curl
 cyrus-sasl-plain
 daala-libs
+dbeaver-ce
 dbus
 default-editor
 default-fonts-cjk-mono
@@ -144,7 +146,6 @@ ffmpegthumbs
 file
 filelight
 filesystem
-firefox
 firewall-config
 firewalld
 flatpak-kcm
@@ -525,7 +526,7 @@ spice-webdavd
 sssd-common
 sssd-kcm
 sssd-proxy
-steam
+steam-arch-transition
 stow
 subversion
 sudo
@@ -578,6 +579,7 @@ xset
 xwaylandvideobridge
 zeal
 zip
+zmx
 zoxide
 zram-generator-defaults
 zsh
