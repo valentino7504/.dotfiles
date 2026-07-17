@@ -1,6 +1,6 @@
 -- Define necessary variables - inlay hint allowed servers and keymap
 local hint_allowed_list = {
-	["ty"] = true,
+	["basedpyright"] = true,
 	["rust_analyzer"] = true,
 	["gopls"] = true,
 }
