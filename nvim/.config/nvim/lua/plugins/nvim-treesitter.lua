@@ -1,0 +1,46 @@
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter").install({
+				"json",
+				"javascript",
+				"typescript",
+				"tsx",
+				"yaml",
+				"html",
+				"css",
+				"markdown",
+				"markdown_inline",
+				"bash",
+				"lua",
+				"vim",
+				"c",
+				"go",
+				"python",
+				"sql",
+				"gosum",
+				"gomod",
+				"dockerfile",
+				"rust",
+			})
+		end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		ft = {
+			"html",
+			"tsx",
+			"jsx",
+			"markdown",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"xml",
+		},
+		opts = {},
+	},
+}
