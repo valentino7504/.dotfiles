@@ -24,7 +24,6 @@ alsa-ucm
 alsa-utils
 amd-gpu-firmware
 amd-ucode-firmware
-anaconda-install-env-deps
 anaconda-live
 aribb25
 ark
@@ -153,7 +152,6 @@ flexiblas
 flexiblas-netlib
 flexiblas-openblas-openmp
 flexiblas-openblas-serial
-foliate
 fortune-mod
 fpaste
 fprintd-pam
@@ -473,6 +471,7 @@ plasma-workspace-wallpapers
 plocate
 plymouth
 plymouth-system-theme
+podman-compose
 policycoreutils
 polkit-kde
 ppp
@@ -489,6 +488,7 @@ qrca
 qt6-qthttpserver
 quota
 rdma-core-common
+readest
 realmd
 realtek-firmware
 recode
@@ -579,7 +579,6 @@ xset
 xwaylandvideobridge
 zeal
 zip
-zmx
 zoxide
 zram-generator-defaults
 zsh
