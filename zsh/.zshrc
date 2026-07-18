@@ -6,6 +6,7 @@
 typeset -U path PATH
 export GOPATH=$HOME/.local/share/go
 path=("$HOME/.local/bin" "$HOME/.local/share/nvim/mason/bin" "$GOPATH/bin" "$HOME/.spicetify" $path)
+fpath=("$HOME/.zsh/completion" $fpath)
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
@@ -27,16 +28,16 @@ ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
 autoload -Uz compinit
 
 if [[ -n "$ZSH_COMPDUMP"(#qN.m-1) ]]; then
-    compinit -u -C -d "$ZSH_COMPDUMP"
+	compinit -u -C -d "$ZSH_COMPDUMP"
 else
-    compinit -u -d "$ZSH_COMPDUMP"
-    touch "$ZSH_COMPDUMP"
+	compinit -u -d "$ZSH_COMPDUMP"
+	touch "$ZSH_COMPDUMP"
 fi
 {
-    if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
-        zcompile "$ZSH_COMPDUMP"
-    fi
-} &!
+	if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
+		zcompile "$ZSH_COMPDUMP"
+	fi
+} &|
 # Case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
 # uv completion
@@ -46,32 +47,46 @@ eval "$(uv generate-shell-completion zsh)"
 # 3. THE ROBBYRUSSELL THEME
 # ==============================================================================
 function git_prompt_info() {
-    command git rev-parse --is-inside-work-tree &>/dev/null || return
-    local branch=$(command git symbolic-ref --short HEAD 2>/dev/null)
-    [[ -z $branch ]] && return
+	command git rev-parse --is-inside-work-tree &>/dev/null || return
+	local branch=$(command git symbolic-ref --short HEAD 2>/dev/null)
+	[[ -z $branch ]] && return
 
-    local dirty=""
-    local has_changes=false
+	local dirty=""
+	local has_changes=false
 
-    if ! command git diff --cached --quiet 2>/dev/null; then
-        has_changes=true
-    elif ! command git diff --quiet 2>/dev/null; then
-        has_changes=true
-    elif [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]]; then
-        has_changes=true
-    fi
+	if ! command git diff --cached --quiet 2>/dev/null; then
+		has_changes=true
+	elif ! command git diff --quiet 2>/dev/null; then
+		has_changes=true
+	elif [[ -n $(command git ls-files --others --exclude-standard 2>/dev/null) ]]; then
+		has_changes=true
+	fi
 
-    if $has_changes; then
-        dirty="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
-    else
-        dirty="%{$fg[blue]%})%{$reset_color%}"
-    fi
+	if $has_changes; then
+		dirty="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+	else
+		dirty="%{$fg[blue]%})%{$reset_color%}"
+	fi
 
-    echo "%{$fg_bold[blue]%}git:(%{$fg[red]%}${branch}${dirty}"
+	echo "%{$fg_bold[blue]%}git:(%{$fg[red]%}${branch}${dirty}"
+}
+
+# Function for ZMX session (keep it concise)
+zmx_prompt_info() {
+	[[ -n "$ZMX_SESSION" ]] && echo "%{$fg_bold[magenta]%}[$ZMX_SESSION]%{$reset_color%}"
+}
+
+# Function for Venv (standard way to detect)
+venv_prompt_info() {
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		local proj_name=$(basename "$(dirname "$VIRTUAL_ENV")")
+		echo "%{$fg_bold[green]%}($proj_name)%{$reset_color%}"
+	fi
 }
 
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) %{$fg[cyan]%}%c%{$reset_color%} "
 PROMPT+='$(git_prompt_info) '
+RPROMPT='$(venv_prompt_info) $(zmx_prompt_info)'
 # ==============================================================================
 # 4. TOOLS & ENVIRONMENT
 # ==============================================================================
@@ -84,6 +99,7 @@ export SNIPPETBOX_DB_URL="sbox:snip123@tcp(127.0.0.1:3306)/snippetbox?parseTime=
 export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/rosepine.yml"
 export EDITOR="vim"
 export KEYTIMEOUT=1
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Zoxide (Initialize after paths are set)
 eval "$(zoxide init zsh)"
@@ -106,64 +122,70 @@ alias top="btop"
 # ==============================================================================
 AUTOSUGGEST_FILE="$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 if [[ -f "$AUTOSUGGEST_FILE" ]]; then
-    [[ ! "$AUTOSUGGEST_FILE".zwc -nt "$AUTOSUGGEST_FILE" ]] && zcompile "$AUTOSUGGEST_FILE"
-    source "$AUTOSUGGEST_FILE"
+	[[ ! "$AUTOSUGGEST_FILE".zwc -nt "$AUTOSUGGEST_FILE" ]] && zcompile "$AUTOSUGGEST_FILE"
+	source "$AUTOSUGGEST_FILE"
 fi
 
 # ==============================================================================
 # 7. CUSTOM FUNCTIONS (Yazi, C Project, Venv)
 # ==============================================================================
 y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
 
 mkc() {
-    local name=$1
-    local author_name=$(git config user.name)
-    local current_date=$(date +%Y-%m-%d)
-    local template_dir="$HOME/.config/template-files"
+	local name=$1
+	local author_name=$(git config user.name)
+	local current_date=$(date +%Y-%m-%d)
+	local template_dir="$HOME/.config/template-files"
 
-    if [[ -z "$name" ]]; then echo "Usage: mkc <project_name>"; return 1; fi
-    if [[ -d "$name" ]]; then echo "Error: Directory '$name' already exists."; return 1; fi
+	if [[ -z "$name" ]]; then
+		echo "Usage: mkc <project_name>"
+		return 1
+	fi
+	if [[ -d "$name" ]]; then
+		echo "Error: Directory '$name' already exists."
+		return 1
+	fi
 
-    mkdir -p "$name/src" "$name/build" "$name/bin" && cd "$name" || return
-    git init -q
-    cp "$template_dir/gitignore/c" ./.gitignore
-    cp "$template_dir/makefiles/MakefileC.tmplt" ./Makefile
-    sed -e "s/{{PROJECT_NAME}}/$name/g" \
-        -e "s/{{AUTHOR}}/${author_name:-"User"}/g" \
-        -e "s/{{DATE}}/$current_date/g" \
-        "$template_dir/code/c/main.c.tmplt" > src/main.c
-    if (( $+commands[bear] )); then
-        bear -- make all >/dev/null 2>&1
-    else
-        make all >/dev/null 2>&1
-    fi
-    cp ~/.config/template-files/code/c/.clang-format ./.clang-format
-    cp ~/.config/template-files/code/c/.gdbinit ./.gdbinit
-    echo "C project '$name' initialized."
+	mkdir -p "$name/src" "$name/build" "$name/bin" && cd "$name" || return
+	git init -q
+	cp "$template_dir/gitignore/c" ./.gitignore
+	cp "$template_dir/makefiles/MakefileC.tmplt" ./Makefile
+	sed -e "s/{{PROJECT_NAME}}/$name/g" \
+		-e "s/{{AUTHOR}}/${author_name:-"User"}/g" \
+		-e "s/{{DATE}}/$current_date/g" \
+		"$template_dir/code/c/main.c.tmplt" >src/main.c
+	if (($+commands[bear])); then
+		bear -- make all >/dev/null 2>&1
+	else
+		make all >/dev/null 2>&1
+	fi
+	cp ~/.config/template-files/code/c/.clang-format ./.clang-format
+	cp ~/.config/template-files/code/c/.gdbinit ./.gdbinit
+	echo "C project '$name' initialized."
 }
 
 python_venv_autoloader() {
-  if [[ -z "$VIRTUAL_ENV" ]] ; then
-    ## If env folder is found then activate the vitualenv
-    if [[ -d ./.venv ]] ; then
-      source ./.venv/bin/activate
-    fi
-  else
-    ## check the current folder belong to earlier VIRTUAL_ENV folder
-    # if yes then do nothing
-    # else deactivate
-    parentdir="$(dirname "$VIRTUAL_ENV")"
-    if [[ "$PWD"/ != "$parentdir"/* ]] ; then
-      deactivate
-    fi
-  fi
+	if [[ -z "$VIRTUAL_ENV" ]]; then
+		## If env folder is found then activate the vitualenv
+		if [[ -d ./.venv ]]; then
+			source ./.venv/bin/activate
+		fi
+	else
+		## check the current folder belong to earlier VIRTUAL_ENV folder
+		# if yes then do nothing
+		# else deactivate
+		parentdir="$(dirname "$VIRTUAL_ENV")"
+		if [[ "$PWD"/ != "$parentdir"/* ]]; then
+			deactivate
+		fi
+	fi
 }
 
 autoload -U add-zsh-hook
