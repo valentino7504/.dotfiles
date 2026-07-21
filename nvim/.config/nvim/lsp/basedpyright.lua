@@ -3,13 +3,13 @@ return {
 		basedpyright = {
 			analysis = {
 				-- uncomment the following line for loosey goosey code
-				-- typeCheckingMode = "off",
+				typeCheckingMode = "basic",
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
 				diagnosticMode = "openFilesOnly",
 				inlayHints = {
-					variableTypes = true,
-					callArgumentNames = true,
+					variableTypes = false,
+					callArgumentNames = false,
 				},
 			},
 		},
