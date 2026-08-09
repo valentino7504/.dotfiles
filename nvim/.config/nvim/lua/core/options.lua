@@ -5,8 +5,7 @@ opt.relativenumber = true
 opt.number = true
 
 -- Indentation and columns
-opt.autoindent = false
-opt.smartindent = true
+opt.autoindent = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
@@ -34,6 +33,19 @@ opt.showtabline = 2
 
 -- Behaviour
 opt.clipboard:append("unnamedplus")
--- opt.shortmess:append("u") for next version bump
+-- opt.shortmess:append("u")
 opt.backspace = "indent,eol,start"
 opt.mouse = ""
+
+-- Code Folding
+opt.foldlevelstart = 99
+opt.foldtext = ""
+opt.foldcolumn = "1"
+
+vim.opt.fillchars:append({
+	fold = "·",
+	foldopen = "▾",
+	foldclose = "▸",
+	foldsep = " ",
+	foldinner = " ",
+})
