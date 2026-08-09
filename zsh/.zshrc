@@ -184,8 +184,10 @@ python_venv_autoloader() {
 		parentdir="$(dirname "$VIRTUAL_ENV")"
 		if [[ "$PWD"/ != "$parentdir"/* ]]; then
 			deactivate
-		fi
-	fi
+    else
+      path=("$VIRTUAL_ENV/bin" "${path[@]:#$VIRTUAL_ENV/bin}")
+    fi
+  fi
 }
 
 autoload -U add-zsh-hook
