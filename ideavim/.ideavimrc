@@ -1,34 +1,38 @@
 set NERDTree
 set scrolloff=10
-set linenumber
-set relativenumber
 set showmode
 set showcmd
-set visualbell
-set which-key
 set timeoutlen=4000
-
 set clipboard+=unnamedplus
+set relativenumber
+set visualbell
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set highlightedyank
+set commentary
 
 let mapleader = " "
 
 nnoremap <C-v> <C-v>
 inoremap <C-v> <C-r>+
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
+nmap <Leader>sv :vsplit<CR>
+nmap <Leader>sh :split<CR>
+nnoremap <leader>nh :nohl<CR>
+nmap <Leader>rn <action>(RenameElement)
+nmap <Leader>gr <Action>(ShowUsages)
 
+" FUZZIER KEYBINDS
 nmap <Leader>ff <action>(com.mituuz.fuzzier.search.Fuzzier)
 nmap <Leader>fs <action>(com.mituuz.fuzzier.grep.FuzzyGrep)
-nmap <Leader>rn <action>(RenameElement)
-nnoremap <leader>nh :nohl<CR>
+
+" NERDTree KEYBINDS
 nnoremap - :NERDTreeFocus<CR>
 
-set highlightedyank
-set commentary
-nmap <Leader>gr <Action>(FindUsages)
-
+" FLASH KEYBINDS
 " Search for string in visible area and jump
 nmap s <Action>(flash.search)
 xmap s <Action>(flash.search) " enhance vim f (find for char in characters to the right of the current cursor)
@@ -54,4 +58,9 @@ nmap S <Action>(flash.treesitter)
 xmap S <Action>(flash.treesitter)
 " remote operator (after pressing an operator like d, use r to pick target line remotely)
 omap r <Action>(flash.remote)
-nmap <Leader>lg <Action>(LazyGit.Open)
+
+" LAZYGIT KEYBINDS
+" Map <leader>gg to open LazyGit at the project root
+nmap <leader>lg <Action>(Lazygit.Toggle)
+" Map <leader>gG to open LazyGit at the current file's directory
+nmap <leader>lG <Action>(Lazygit.ToggleCurrentDir)

@@ -18,3 +18,6 @@ tree-sitter = "latest"
 
 [settings.python]
 compile = false
+
+[settings.self_update]
+auto = true
